@@ -1,0 +1,37 @@
+\documentclass{tutkielma}
+
+\title{Tutkielma-tyylin esimerkki}
+\author{Asko}{Tapani}{Soukka}
+\location{Jyväskylä}
+\university{Jyväskylän yliopisto}
+\department{Tietojenkäsittelytieteiden laitos}
+\subject{Tietojärjestelmätieteen}
+\type{Esimerkki}
+\keywords{\LaTeX, taitto}
+
+%\fixdate{13}{7}{2007}
+
+\usepackage{texnames}
+\usepackage[pdftex]{graphicx}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+
+Tämä on esimerkki tutkielma"-tyylin käytöstä.
+
+\end{abstract}
+
+\tableofcontents
+
+\include{luvut/esimerkkiluku}
+
+\bibliography{esimerkki.bib}
+
+\appendix
+
+\include{luvut/esimerkkiliite}
+
+\end{document}

@@ -1,0 +1,6 @@
+digraph LexiaToLexiaUnidirectional {
+    lexia_a [label="\n\n\n\n\n", shape="box"]
+    lexia_b [label="\n\n\n\n\n", shape="box"]
+
+    lexia_a -> lexia_b
+}
