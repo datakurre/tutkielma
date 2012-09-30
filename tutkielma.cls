@@ -67,7 +67,7 @@
 
 \def\tutkielma@title{Tutkielman otsikko}
 \def\tutkielma@author{Tutkielman kirjoittaja}
-\def\tutkielma@date{\myday.\mymonth.\myyear} 
+\def\tutkielma@date{\myday.\mymonth.\myyear}
 \def\tutkielma@location{Jyv\"askyl\"a}
 \def\tutkielma@university{Jyv\"askyl\"an yliopisto}
 \def\tutkielma@department{Tietojenk\"asittelytieteiden laitos}
@@ -200,7 +200,7 @@
       \centerline{%
         \tutkielma@authors%
         ~\mylastsep~\tutkielma@author%
-      }%     
+      }%
     \fi%
     \begin{onehalfspace}%
     \center{\Large\textbf{%
@@ -236,7 +236,7 @@
   \end{singlespace}%
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Abstract page
 \RequirePackage{totpages}
 \newlength{\keywordswidth}
@@ -267,7 +267,7 @@
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Table of contents
-% 
+%
 
 \renewcommand\@dotsep{0.1}
 \renewcommand\tableofcontents{%
@@ -308,7 +308,7 @@
 \renewcommand*\l@section{\@dottedtocline{\z@}{2.25ex}{3.75ex}}
 \renewcommand*\l@subsection{\@dottedtocline{\z@}{6ex}{5.25ex}}
 \newcommand*\l@appendix{\@dottedtocline{\z@}{\z@}{\z@}}
-  
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Appendices
 %
@@ -327,7 +327,7 @@
   \renewcommand \theHsubfigure{\theappendix.\thefigure.\arabic{subfigure}}
 }
 \addtolength{\headheight}{2.0pt}
-\providecommand*{\toclevel@appendix}{0} 
+\providecommand*{\toclevel@appendix}{0}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Headlines
@@ -413,7 +413,7 @@
 \newcommand \secref[1][] {%
   \def\relayarg{{#1}}%
   \secrefr%
-}  
+}
 \newcommand \secrefr[2][default] {%
   \setbox0=\hbox{#1}%
   \setbox1=\hbox{default}%
@@ -443,7 +443,7 @@
   \noindent \ignorespaces%
 }{\par \addvspace{26pt}}
 
-% Hooked enumerate, itemize and description 
+% Hooked enumerate, itemize and description
 % from: http://dcwww.camd.dtu.dk/~schiotz/comp/LatexTips/tweaklist.sty
 
 \def\enumhook{}
@@ -530,9 +530,9 @@
 \@removefromreset{table}{chapter}
 
 \renewcommand \thefigure {\@arabic\c@figure}
-\renewcommand \thesubfigure {$\alph{subfigure})$} 
+\renewcommand \thesubfigure {$\alph{subfigure})$}
 \renewcommand \thetable {\@arabic\c@table}
-\renewcommand \thesubtable {\alph{subtable}} 
+\renewcommand \thesubtable {\alph{subtable}}
 \renewcommand \theexample {\@arabic\c@example}
 
 % \newcommand \figref[2][] {\MakeUppercase{\myfigurename}~\ref{#2}#1}
@@ -542,7 +542,7 @@
 \newcommand \figref[1][] {%
   \def\relayarg{{#1}}%
   \figrefr%
-}  
+}
 \newcommand \figrefr[2][default] {%
   \setbox0=\hbox{#1}%
   \setbox1=\hbox{default}%
@@ -557,7 +557,7 @@
 \newcommand \tabref[1][] {%
   \def\relayarg{{#1}}%
   \tabrefr%
-}  
+}
 \newcommand \tabrefr[2][default] {%
   \setbox0=\hbox{#1}%
   \setbox1=\hbox{default}%
@@ -572,7 +572,7 @@
 \newcommand \exref[1][] {%
   \def\relayarg{{#1}}%
   \exrefr%
-}  
+}
 \newcommand \exrefr[2][default] {%
   \setbox0=\hbox{#1}%
   \setbox1=\hbox{default}%
@@ -590,7 +590,7 @@
 
 \newenvironment{example}{\setlength{\abovecaptionskip}{\z@}\setlength{\belowcaptionskip}{-2.5pt}\@float{example}}{\end@float}
 \renewenvironment{table}{\setlength{\abovecaptionskip}{\z@}\setlength{\belowcaptionskip}{-5pt}\@float{table}}{\end@float}
-\renewenvironment{figure}{\setlength{\abovecaptionskip}{11pt}\setlength{\belowcaptionskip}{\z@}\@float{figure}}{\end@float}   
+\renewenvironment{figure}{\setlength{\abovecaptionskip}{11pt}\setlength{\belowcaptionskip}{\z@}\@float{figure}}{\end@float}
 
 \def\@makecaption#1#2{%
   \captionfontsize%
@@ -682,14 +682,14 @@
   \begin{singlespace}%
   \@starttoc{lot}%
   \end{singlespace}%
-}  
+}
 
 \newcommand\listofexamples{%
   \addvspace{11pt}%
   \begin{singlespace}%
   \@starttoc{loe}%
   \end{singlespace}%
-}  
+}
 
 \long\def\@caption#1[#2]#3{%
   \hyper@makecurrent{\@captype}%

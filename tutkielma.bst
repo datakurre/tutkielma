@@ -9,7 +9,7 @@
 %% merlin.mbs  (with options: `tail,exlang,ay,nat,lang,vonx,nm-rvv,dt-beg,yr-blk,yrp-per,atit-u,jttl-rm,thtit-a,volp-com,pp-last,num-xser,numser,ser-vol,jnm-x,btit-rm,bt-rm,bkpg-x,add-pub,pre-pub,edparxc,blk-com,blk-tit,blknt,finnish,ppx,ed,xedn,amper,and-xcom,etal-xc,url,url-nt,em-x,nfss,,{}')
 %% ----------------------------------------
 %% *** http://www.jyu.fi/it/cs/ ***
-%% 
+%%
 %% Copyright 1994-2005 Patrick W Daly
  % ===============================================================
  % IMPORTANT NOTICE:
