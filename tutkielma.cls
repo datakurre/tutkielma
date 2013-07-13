@@ -94,9 +94,10 @@
 %
 
 \RequirePackage{tocbibind}
-\RequirePackage{natbib}
+%\RequirePackage{natbib}
+\usepackage[comma, longnamesfirst]{natbib}
 
-\bibpunct{(}{)}{,}{a}{}{;}
+%\bibpunct{(}{)}{,}{a}{}{;}
 \setlength{\bibhang}{5ex}
 \setlength{\bibsep}{\z@}
 
