@@ -19,7 +19,7 @@
 \LoadClass[a4paper,12pt]{report}
 \RequirePackage{everyshi}[1994/12/09]
 \RequirePackage{mathpazo}
-\RequirePackage[left=40mm,right=20mm,top=30mm,bottom=30mm,nofoot]{geometry}
+\RequirePackage[left=30mm,right=30mm,top=30mm,bottom=25mm,nofoot]{geometry}
 \RequirePackage{microtype}
 \RequirePackage{setspace}
 
@@ -66,8 +66,10 @@
 \def\mypagesabbrv{s.}
 
 \def\tutkielma@title{Tutkielman otsikko}
+\def\tutkielma@titlesecond{Aliotsikko}
 \def\tutkielma@author{Tutkielman kirjoittaja}
 \def\tutkielma@date{\myday.\mymonth.\myyear}
+\def\tutkielma@year{\myyear}
 \def\tutkielma@location{Jyv\"askyl\"a}
 \def\tutkielma@university{Jyv\"askyl\"an yliopisto}
 \def\tutkielma@department{Tietojenk\"asittelytieteiden laitos}
@@ -136,6 +138,9 @@
 \renewcommand{\title}[1]{
   \gdef\tutkielma@title{#1}
 }
+\newcommand{\titlesecond}[1]{
+  \gdef\tutkielma@titlesecond{#1}
+}
 \def\tutkielma@authors{}
 \def\tutkielma@authorfs{}
 \newcounter{tutkielma@authorcount}
@@ -192,6 +197,7 @@
 
 \renewcommand{\maketitle}{%
   \thispagestyle{empty}
+  \renewcommand\Large{\@setfontsize\Large{16}{16}}
   \begin{singlespace}%
     \mbox{}\vfill%
     \ifnum \value{tutkielma@authorcount} < 2%
@@ -203,35 +209,25 @@
       }%
     \fi%
     \begin{onehalfspace}%
-    \center{\Large\textbf{%
-      \texorpdfstring{\MakeUppercase{\tutkielma@title}}{\tutkielma@title}}%
-    }%
+    \begin{center}%
+    \Large\textbf{%
+      \MakeUppercase{\tutkielma@title}}%
+    \end{center}%
+    \begin{center}%
+    \Large\textbf{%
+      \MakeUppercase{\tutkielma@titlesecond}}%
+    \end{center}%
     \end{onehalfspace}%
-    \vfill%
     \newcommand{\tablefontsizeorig}{\tablefontsize}
     \newcommand{\tablespacingorig}{\tablespacing}
-    \renewcommand{\tablefontsize}{\normalsize}
-    \renewcommand{\tablespacing}{}
-    \flushright\begin{tabular}{l}%
-      \tutkielma@subject\\%
-      \ifx \tutkielma@subject \empty \tutkielma@type\\%
-      \else \MakeLowercase{\tutkielma@type}\\%
-      \fi%
-      \ifx \tutkielma@version \empty%
-      \else \tutkielma@version\\%
-      \fi%
-      \tutkielma@date%
-      \ifx \tutkielma@note \empty%
-      \else ~(\tutkielma@note)%
-      \fi%
-    \end{tabular}%
     \renewcommand{\tablefontsize}{\tablefontsizeorig}
     \renewcommand{\tablespacing}{\tablespacingorig}
     \vfill%
     \begin{center}%
-      \tutkielma@university\par%
-      \tutkielma@department\par%
-      \tutkielma@location\par%
+      \includegraphics[height=2.7cm]{kuviot/logo.jpg}\par%
+      \MakeUppercase{\tutkielma@university}\par%
+      \MakeUppercase{\tutkielma@department}\par%
+      \tutkielma@year\par%
     \end{center}%
   \end{singlespace}%
 }
@@ -373,10 +369,11 @@
 \def\@makechapterhead#1{%
   \ifnum \thechapter = 1 \thispagestyle{empty} \fi%
   {%
+    \vspace*{5.7cm}%
     \parindent \z@ \raggedright%
-    \large \bfseries%
+    \fontsize{16}{18} \bfseries%
     \ifnum \triggerappendix = 0 %
-      \ifnum \c@secnumdepth > \m@ne \thechapter \hskip 1ex \fi%
+      \ifnum \c@secnumdepth > \m@ne \thechapter \hskip 2.5ex \fi%
     \fi %
     \MakeUppercase{#1}%
   }%
