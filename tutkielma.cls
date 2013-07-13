@@ -23,7 +23,7 @@
 \RequirePackage{microtype}
 \RequirePackage{setspace}
 
-\onehalfspacing
+\singlespacing
 
 \newcommand{\tablefontsize}{\footnotesize}
 \newcommand{\quotefontsize}{\footnotesize}
