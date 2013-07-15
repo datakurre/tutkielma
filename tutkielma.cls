@@ -391,7 +391,7 @@
 \def\@seccntformat#1{\csname the#1\endcsname \hskip 1ex}
 
 \renewcommand\section{\@startsection{section}%
-  {1}{\z@}{-26pt}{26pt}{\normalfont \normalsize \bfseries}%
+  {1}{\z@}{-26pt}{26pt}{\normalfont \large \bfseries}%
 }
 \renewcommand\subsection{\@startsection{subsection}%
   {2}{\z@}{-26pt}{26pt}{\normalfont \normalsize \bfseries}%
