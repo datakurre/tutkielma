@@ -469,7 +469,7 @@
   \fi}
 \def\itemize{%
 %  \quotefontsize
-%  \quotespacing
+%  \quotespacing        
   \ifnum \@itemdepth >\thr@@\@toodeep\else
     \advance\@itemdepth\@ne
     \edef\@itemitem{labelitem\romannumeral\the\@itemdepth}%
@@ -496,8 +496,8 @@
 % \renewcommand{\enumhook}{\setlength{\topsep}{\z@}%
 %  \setlength{\itemsep}{\z@}}
 
-\renewcommand{\itemhook}{\setlength{\topsep}{11pt}%
-  \setlength{\itemsep}{11pt}}
+\renewcommand{\itemhook}{\setlength{\topsep}{1em}%
+  \setlength{\itemsep}{0em}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Examples, Figures and Tables
