@@ -272,6 +272,10 @@
     \@mkboth{\mytableofcontentsname}%
     {\mytableofcontentsname}%
   }%
+  \addcontentsline{toc}{chapter}{%
+    \protect\numberline{}\texorpdfstring{\uppercase{\mytableofcontentsname}}{\mytableofcontentsname}%
+  }%
+  \addtocontents{toc}{\protect\contentsline{space}{}{}{}}%
   \thispagestyle{empty}%
   \begin{singlespace}%
     \@starttoc{toc}%
