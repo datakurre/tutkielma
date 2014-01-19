@@ -401,7 +401,7 @@ FUNCTION {format.names}
                   " " * bbl.etal *
                 }
                 {
-                  "\&"
+                  bbl.and
                   space.word * t *
                 }
               if$
@@ -446,7 +446,7 @@ FUNCTION {format.names.ed}
                   " " * bbl.etal *
                 }
                 {
-                  "\&"
+                  bbl.and
                   space.word * t *
                 }
               if$
@@ -551,7 +551,7 @@ FUNCTION {format.full.names}
                   " " * bbl.etal *
                 }
                 {
-                  "\&"
+                  bbl.and
                   space.word * t *
                 }
               if$
@@ -1264,7 +1264,7 @@ FUNCTION {format.lab.names}
             {
               " " * bbl.etal *
             }
-            { " \& " * s #2 "{vv~}{ll}" format.name$
+            { " " * bbl.and * s #2 "{vv~}{ll}" format.name$
               * }
           if$
         }
