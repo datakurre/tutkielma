@@ -267,14 +267,7 @@
 
 \renewcommand\@dotsep{0.1}
 \renewcommand\tableofcontents{%
-  \chapter*{%
-    \mytableofcontentsname%
-    \@mkboth{\mytableofcontentsname}%
-    {\mytableofcontentsname}%
-  }%
-  \addcontentsline{toc}{chapter}{%
-    \protect\numberline{}\texorpdfstring{\uppercase{\mytableofcontentsname}}{\mytableofcontentsname}%
-  }%
+  \toc@chapter{\texorpdfstring{\uppercase{\mytableofcontentsname}}{\mytableofcontentsname}}%
   \addtocontents{toc}{\protect\contentsline{space}{}{}{}}%
   \thispagestyle{empty}%
   \begin{singlespace}%
