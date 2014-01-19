@@ -19,7 +19,7 @@
 \LoadClass[a4paper,12pt]{report}
 \RequirePackage{everyshi}[1994/12/09]
 \RequirePackage{mathpazo}
-\RequirePackage[left=30mm,right=30mm,top=30mm,bottom=25mm,nofoot]{geometry}
+\RequirePackage[left=30mm,right=30mm,top=30mm,bottom=25mm,foot=12pt]{geometry}
 \RequirePackage{microtype}
 \RequirePackage{setspace}
 
@@ -323,7 +323,7 @@
   \renewcommand \theHtable{\theappendix.\@arabic\c@table}
   \renewcommand \theHsubfigure{\theappendix.\thefigure.\arabic{subfigure}}
 }
-\addtolength{\headheight}{2.0pt}
+\addtolength{\headheight}{2.5pt}
 \providecommand*{\toclevel@appendix}{0}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
