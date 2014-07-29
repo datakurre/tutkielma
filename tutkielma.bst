@@ -209,7 +209,7 @@ FUNCTION {space.word}
 
  % The language selected here is FINNISH
 FUNCTION {bbl.and}
-{ "ja"}
+{ "ja" }
 
 FUNCTION {bbl.etal}
 { "ym." }
@@ -1264,7 +1264,7 @@ FUNCTION {format.lab.names}
             {
               " " * bbl.etal *
             }
-            { " " * bbl.and * s #2 "{vv~}{ll}" format.name$
+            { " " * bbl.and * " " * s #2 "{vv~}{ll}" format.name$
               * }
           if$
         }
