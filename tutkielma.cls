@@ -60,21 +60,27 @@
 \def\mytablename{Taulukko}
 \def\mybibname{L\"ahteet}
 \def\mysectionname{Luku}
+\def\myforeignabstractname{Abstract}
+\def\myforeignkeywordsname{Keywords}
 
 \def\mylastsep{ja}
 \def\mypageabbrv{s.}
 \def\mypagesabbrv{s.}
+\def\myforeignpagesabbrv{p.}
 
 \def\tutkielma@title{Tutkielman otsikko}
+\def\tutkielma@foreigntitle{The title of the thesis}
 \def\tutkielma@titlesecond{Aliotsikko}
 \def\tutkielma@author{Tutkielman kirjoittaja}
 \def\tutkielma@date{\myday.\mymonth.\myyear}
 \def\tutkielma@year{\myyear}
 \def\tutkielma@location{Jyv\"askyl\"a}
 \def\tutkielma@university{Jyv\"askyl\"an yliopisto}
+\def\tutkielma@foreignuniversity{University of Jyv\"askyl\"a}
 \def\tutkielma@department{Tietojenk\"asittelytieteiden laitos}
 \def\tutkielma@subject{Tietoj\"arjestelm\"atieteen}
 \def\tutkielma@type{pro tutkielma -tutkielma}
+\def\tutkielma@foreigntype{Masters thesis}
 \def\tutkielma@version{}
 \def\tutkielma@note{}
 \def\tutkielma@keywords{Luettele, t\"ah\"an, avain, sanat}
@@ -138,6 +144,9 @@
 \renewcommand{\title}[1]{
   \gdef\tutkielma@title{#1}
 }
+\newcommand{\foreigntitle}[1]{
+  \gdef\tutkielma@foreigntitle{#1}
+}
 \newcommand{\titlesecond}[1]{
   \gdef\tutkielma@titlesecond{#1}
 }
@@ -168,6 +177,9 @@
 \newcommand{\university}[1]{
   \gdef\tutkielma@university{#1}
 }
+\newcommand{\foreignuniversity}[1]{
+  \gdef\tutkielma@foreignuniversity{#1}
+}
 \newcommand{\department}[1]{
   \gdef\tutkielma@department{#1}
 }
@@ -176,6 +188,9 @@
 }
 \newcommand{\type}[1]{
   \gdef\tutkielma@type{#1}
+}
+\newcommand{\foreigntype}[1]{
+  \gdef\tutkielma@foreigntype{#1}
 }
 \newcommand{\version}[1]{
   \gdef\tutkielma@version{#1}
@@ -241,7 +256,7 @@
   \thispagestyle{empty}
   \ifnum \value{tutkielma@authorcount} < 2
     \tutkielma@authorf\\
-    \tutkielma@title~/~\tutkielma@author\\
+    \tutkielma@title\\
   \else
     \tutkielma@authorfs;~\tutkielma@authorf\\
     \setbox0=\hbox{\tutkielma@title~/~\tutkielma@authors~\mylastsep~\tutkielma@author}
@@ -249,14 +264,37 @@
     \else \tutkielma@title~/~\tutkielma@authors~\mylastsep~\tutkielma@author\\
     \fi
   \fi
-  \tutkielma@location:~\tutkielma@university,~\myyear.\\
-  \ref{TotPages}~\mypagesabbrv\\
+  \tutkielma@location:~\tutkielma@university,~\myyear,~\ref{TotPages}~\mypagesabbrv\\
   \tutkielma@type
   \par\addvspace{26pt}
 }{
   \addvspace{26pt}\par
   \setlength{\keywordswidth}{\hsize}
-  \setbox0=\hbox{\MakeUppercase{\mykeywordsname:\hskip 5ex}}
+  \setbox0=\hbox{\mykeywordsname:\hskip 5ex}
+  \addtolength{\keywordswidth}{-\wd0}
+  \addtolength{\keywordswidth}{-2.5pt}
+  \noindent\box0\parbox[t][][t]{\keywordswidth}{\tutkielma@keywords}
+}
+\newenvironment{foreignabstract}{
+  \chapter*{\myforeignabstractname}
+  \thispagestyle{empty}
+  \ifnum \value{tutkielma@authorcount} < 2
+    \tutkielma@authorf\\
+    \tutkielma@foreigntitle\\
+  \else
+    \tutkielma@authorfs;~\tutkielma@authorf\\
+    \setbox0=\hbox{\tutkielma@title~/~\tutkielma@authors~\mylastsep~\tutkielma@author}
+    \ifnum \wd0 > \hsize \tutkielma@title\\
+    \else \tutkielma@title~/~\tutkielma@authors~\mylastsep~\tutkielma@author\\
+    \fi
+  \fi
+  \tutkielma@location:~\tutkielma@foreignuniversity,~\myyear,~\ref{TotPages}~\myforeignpagesabbrv\\
+  \tutkielma@foreigntype
+  \par\addvspace{26pt}
+}{
+  \addvspace{26pt}\par
+  \setlength{\keywordswidth}{\hsize}
+  \setbox0=\hbox{\myforeignkeywordsname:\hskip 5ex}
   \addtolength{\keywordswidth}{-\wd0}
   \addtolength{\keywordswidth}{-2.5pt}
   \noindent\box0\parbox[t][][t]{\keywordswidth}{\tutkielma@keywords}
