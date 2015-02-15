@@ -499,7 +499,7 @@ FUNCTION {format.note}
 {
   url empty$
     'skip$
-    { "\urlprefix \url{" url * "}" * output }
+    { bbl.urldate " " urldate " \urlprefix \url{" url * * * * "}" * output }
   if$
  note empty$
     { "" }
@@ -666,8 +666,8 @@ FUNCTION {format.online}
 { " [" swap$ * * "]" * }
 
 FUNCTION {format.urldate}
-{ urldate "urldate" bibinfo.check
-  " " swap$ * * " " swap$ * * "" * }
+{ urldate "urldate" 
+  * swap$ * }
 
 FUNCTION {format.date}
 { year "year" bibinfo.check duplicate$ empty$
@@ -1156,9 +1156,8 @@ FUNCTION {electronic}
   format.date "year" output.check
   date.block
   format.title output
-  new.sentence
-  format.publisher.address bbl.urldate format.urldate output
   howpublished "howpublished" bibinfo.check output
+  new.sentence
   format.note output
   fin.entry
 }
