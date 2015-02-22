@@ -263,7 +263,7 @@ FUNCTION {bbl.phdthesis}
 { "V\^^b{a}it\^^b{o}skirja" }
 
 FUNCTION {bbl.urldate}
-{ "viitattu" }
+{ "Haettu" }
 
 FUNCTION {bbl.online}
 { "online" }
@@ -499,7 +499,7 @@ FUNCTION {format.note}
 {
   url empty$
     'skip$
-    { "\urlprefix<\url{" url * "}>" * output }
+    { bbl.urldate " " urldate " \urlprefix \url{" url * * * * "}" * output }
   if$
  note empty$
     { "" }
@@ -666,8 +666,8 @@ FUNCTION {format.online}
 { " [" swap$ * * "]" * }
 
 FUNCTION {format.urldate}
-{ urldate "urldate" bibinfo.check
-  " " swap$ * * " [" swap$ * * "]" * }
+{ urldate "urldate" 
+  * swap$ * }
 
 FUNCTION {format.date}
 { year "year" bibinfo.check duplicate$ empty$
@@ -679,7 +679,7 @@ FUNCTION {format.date}
   if$
   extra.label *
   before.all 'output.state :=
-  " " swap$ *
+  " (" swap$ * * ")"
 }
 FUNCTION {format.btitle}
 { title "title" bibinfo.check
@@ -957,7 +957,6 @@ FUNCTION {article}
     { format.journal.eid }
   if$
   new.sentence
-  format.note output
   fin.entry
 }
 FUNCTION {book}
@@ -996,7 +995,6 @@ FUNCTION {book}
   if$
 
   new.sentence
-  format.note output
   fin.entry
 }
 FUNCTION {booklet}
@@ -1074,7 +1072,6 @@ FUNCTION {incollection}
   if$
   format.pages "pages" output.check
   new.sentence
-  format.note output
   fin.entry
 }
 FUNCTION {inproceedings}
@@ -1102,7 +1099,6 @@ FUNCTION {inproceedings}
   if$
   format.pages "pages" output.check
   new.sentence
-  format.note output
   fin.entry
 }
 FUNCTION {conference} { inproceedings }
@@ -1159,9 +1155,7 @@ FUNCTION {electronic}
   author format.key output
   format.date "year" output.check
   date.block
-  format.title bbl.online format.online output
-  new.sentence
-  format.publisher.address bbl.urldate format.urldate output
+  format.title output
   howpublished "howpublished" bibinfo.check output
   new.sentence
   format.note output
@@ -1505,7 +1499,7 @@ FUNCTION {begin.bib}
   write$ newline$
   "\providecommand{\natexlab}[1]{#1}"
   write$ newline$
-  "\providecommand{\urlprefix}{Saatavilla www-muodossa: }"
+  "\providecommand{\urlprefix}{ osoitteesta }"
   write$ newline$
   "\providecommand{\selectlanguage}[1]{\relax}"
   write$ newline$
