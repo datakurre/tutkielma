@@ -685,7 +685,7 @@ FUNCTION {format.btitle}
 { title "title" bibinfo.check
   duplicate$ empty$ 'skip$
     {
-      select.language
+      "\emph{" swap$ * "}" *
     }
   if$
 }
@@ -852,7 +852,7 @@ FUNCTION {format.in.ed.booktitle}
           * swap$
           * }
       if$
-      word.in swap$ *
+      "\emph{" swap$ * "}" *
     }
   if$
 }
@@ -938,6 +938,7 @@ FUNCTION {article}
         {
         journal
         "journal" bibinfo.check
+        "\emph{" swap$ * "}" *
         "journal" output.check
         add.blank
         format.vol.num.pages output
