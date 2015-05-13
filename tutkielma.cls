@@ -308,8 +308,7 @@
 
 \renewcommand\@dotsep{0.1}
 \renewcommand\tableofcontents{%
-  \toc@chapter{\texorpdfstring{\uppercase{\mytableofcontentsname}}{\mytableofcontentsname}}%
-  \addtocontents{toc}{\protect\contentsline{space}{}{}{}}%
+  \chapter*{\mytableofcontentsname}
   \thispagestyle{empty}%
   \begin{singlespace}%
     \@starttoc{toc}%
@@ -416,6 +415,14 @@
     \MakeUppercase{#1}%
   }%
   \par\addvspace{26pt}%
+}
+\def\@schapter#1{%
+  \ifnum\value{chapter} = 0%
+    \addcontentsline{toc}{chapter}{\texorpdfstring{\uppercase{#1}}{#1}}%
+    \addtocontents{toc}{\protect\contentsline{space}{}{}{}}%
+  \fi%
+  \@makeschapterhead{#1}%
+  \@afterheading%
 }
 \def\@makeschapterhead#1{%
   {%
