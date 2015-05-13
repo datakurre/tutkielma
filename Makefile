@@ -18,3 +18,5 @@ clean:
 	find . -name "*.blg" -print0|xargs -0 rm
 	find . -name "*.bbl" -print0|xargs -0 rm
 	find . -name "*.aux" -print0|xargs -0 rm
+	find . -name "*.lof" -print0|xargs -0 rm
+	find . -name "*.lot" -print0|xargs -0 rm
