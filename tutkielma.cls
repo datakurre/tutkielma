@@ -84,6 +84,7 @@
 \def\tutkielma@version{}
 \def\tutkielma@note{}
 \def\tutkielma@keywords{Luettele, t\"ah\"an, avain, sanat}
+\def\tutkielma@foreignkeywords{Put, your, keywords, here}
 
 \def\mybibliographystyle{tutkielma}
 
@@ -149,6 +150,9 @@
 }
 \newcommand{\titlesecond}[1]{
   \gdef\tutkielma@titlesecond{#1}
+}
+\newcommand{\foreignkeywords}[1]{
+    \gdef\tutkielma@foreignkeywords{#1}
 }
 \def\tutkielma@authors{}
 \def\tutkielma@authorfs{}
@@ -297,7 +301,7 @@
   \setbox0=\hbox{\myforeignkeywordsname:\hskip 5ex}
   \addtolength{\keywordswidth}{-\wd0}
   \addtolength{\keywordswidth}{-2.5pt}
-  \noindent\box0\parbox[t][][t]{\keywordswidth}{\tutkielma@keywords}
+  \noindent\box0\parbox[t][][t]{\keywordswidth}{\tutkielma@foreignkeywords}
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Table of contents
