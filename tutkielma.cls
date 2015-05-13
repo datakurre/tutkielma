@@ -404,7 +404,7 @@
   \@afterheading%
 }
 \def\@makechapterhead#1{%
-  \ifnum \thechapter = 1 \thispagestyle{empty} \fi%
+  % \ifnum \thechapter = 1 \thispagestyle{empty} \fi%
   {%
     \vspace*{5.7cm}%
     \parindent \z@ \raggedright%
