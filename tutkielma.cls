@@ -142,22 +142,22 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Options
-\renewcommand{\title}[1]{
+\renewcommand{\title}[1]{%
   \gdef\tutkielma@title{#1}
 }
-\newcommand{\foreigntitle}[1]{
+\newcommand{\foreigntitle}[1]{%
   \gdef\tutkielma@foreigntitle{#1}
 }
-\newcommand{\titlesecond}[1]{
+\newcommand{\titlesecond}[1]{%
   \gdef\tutkielma@titlesecond{#1}
 }
-\newcommand{\foreignkeywords}[1]{
+\newcommand{\foreignkeywords}[1]{%
     \gdef\tutkielma@foreignkeywords{#1}
 }
 \def\tutkielma@authors{}
 \def\tutkielma@authorfs{}
 \newcounter{tutkielma@authorcount}
-\renewcommand{\author}[3]{
+\renewcommand{\author}[3]{%
   \addtocounter{tutkielma@authorcount}{1}
   \ifnum \value{tutkielma@authorcount} = 2
     \@cons\tutkielma@authors{\tutkielma@author}
@@ -175,37 +175,37 @@
   \else \gdef\tutkielma@authorf{#3, #1 #2}
   \fi
 }
-\newcommand{\location}[1]{
+\newcommand{\location}[1]{%
   \gdef\tutkielma@location{#1}
 }
-\newcommand{\university}[1]{
+\newcommand{\university}[1]{%
   \gdef\tutkielma@university{#1}
 }
-\newcommand{\foreignuniversity}[1]{
+\newcommand{\foreignuniversity}[1]{%
   \gdef\tutkielma@foreignuniversity{#1}
 }
-\newcommand{\department}[1]{
+\newcommand{\department}[1]{%
   \gdef\tutkielma@department{#1}
 }
-\newcommand{\subject}[1]{
+\newcommand{\subject}[1]{%
   \gdef\tutkielma@subject{#1}
 }
-\newcommand{\type}[1]{
+\newcommand{\type}[1]{%
   \gdef\tutkielma@type{#1}
 }
-\newcommand{\foreigntype}[1]{
+\newcommand{\foreigntype}[1]{%
   \gdef\tutkielma@foreigntype{#1}
 }
-\newcommand{\version}[1]{
+\newcommand{\version}[1]{%
   \gdef\tutkielma@version{#1}
 }
-\newcommand{\note}[1]{
+\newcommand{\note}[1]{%
   \gdef\tutkielma@note{#1}
 }
-\newcommand{\keywords}[1]{
+\newcommand{\keywords}[1]{%
   \gdef\tutkielma@keywords{#1}
 }
-\newcommand{\fixdate}[3]{
+\newcommand{\fixdate}[3]{%
   \gdef\myday{#1}
   \gdef\mymonth{#2}
   \gdef\myyear{#3}
@@ -223,8 +223,7 @@
       \centerline{\tutkielma@author}%
     \else%
       \centerline{%
-        \tutkielma@authors%
-        ~\mylastsep~\tutkielma@author%
+        \tutkielma@authors%~\mylastsep~\tutkielma@author%
       }%
     \fi%
     \begin{onehalfspace}%
@@ -255,7 +254,7 @@
 % Abstract page
 \RequirePackage{totpages}
 \newlength{\keywordswidth}
-\renewenvironment{abstract}{
+\renewenvironment{abstract}{%
   \chapter*{\myabstractname}
   \thispagestyle{empty}
   \ifnum \value{tutkielma@authorcount} < 2
@@ -271,7 +270,7 @@
   \tutkielma@location:~\tutkielma@university,~\myyear,~\ref{TotPages}~\mypagesabbrv\\
   \tutkielma@type
   \par\addvspace{26pt}
-}{
+}{%
   \addvspace{26pt}\par
   \setlength{\keywordswidth}{\hsize}
   \setbox0=\hbox{\mykeywordsname:\hskip 5ex}
@@ -279,7 +278,7 @@
   \addtolength{\keywordswidth}{-2.5pt}
   \noindent\box0\parbox[t][][t]{\keywordswidth}{\tutkielma@keywords}
 }
-\newenvironment{foreignabstract}{
+\newenvironment{foreignabstract}{%
   \chapter*{\myforeignabstractname}
   \thispagestyle{empty}
   \ifnum \value{tutkielma@authorcount} < 2
@@ -295,7 +294,7 @@
   \tutkielma@location:~\tutkielma@foreignuniversity,~\myyear,~\ref{TotPages}~\myforeignpagesabbrv\\
   \tutkielma@foreigntype
   \par\addvspace{26pt}
-}{
+}{%
   \addvspace{26pt}\par
   \setlength{\keywordswidth}{\hsize}
   \setbox0=\hbox{\myforeignkeywordsname:\hskip 5ex}
