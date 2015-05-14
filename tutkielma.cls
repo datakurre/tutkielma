@@ -16,7 +16,7 @@
 % Layout
 %
 
-\LoadClass[a4paper,12pt]{report}
+\LoadClass[a4paper,12pt,twoside]{report}
 \RequirePackage{everyshi}[1994/12/09]
 \RequirePackage{mathpazo}
 \RequirePackage[left=30mm,right=30mm,top=30mm,bottom=25mm,foot=12pt]{geometry}
@@ -127,12 +127,9 @@
 \RequirePackage{fancyhdr}
 \pagestyle{fancyplain}
 
-\lhead[\fancyplain{}{}]{\fancyplain{}{}}
-\chead[\fancyplain{\thepage}{\thepage}]{\fancyplain{\thepage}{\thepage}}
-\rhead[\fancyplain{}{}]{\fancyplain{}{}}
-\lfoot[\fancyplain{}{}]{\fancyplain{}{}}
-\cfoot[\fancyplain{}{}]{\fancyplain{}{}}
-\rfoot[\fancyplain{}{}]{\fancyplain{}{}}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[CE,RE,CO,LO]{}
+\fancyfoot{}
 
 \renewcommand{\headrulewidth}{\z@}
 \renewcommand{\footrulewidth}{\z@}
@@ -350,10 +347,7 @@
   \clearpage%
   \gdef\triggerappendix{1}%
   \gdef\@chapapp{\appendixname}%
-  \rhead[\fancyplain{\MakeUppercase{\appendixname}~\theappendix}%
-                    {\MakeUppercase{\appendixname}~\theappendix}]%
-        {\fancyplain{\MakeUppercase{\appendixname}~\theappendix}%
-                    {\MakeUppercase{\appendixname}~\theappendix}}%
+  \fancyhead[LE,RO]{\MakeUppercase{\appendixname}~\theappendix}%
   \renewcommand \theHexample{\theappendix.\@arabic\c@example}
   \renewcommand \theHfigure{\theappendix.\@arabic\c@figure}
   \renewcommand \theHtable{\theappendix.\@arabic\c@table}
