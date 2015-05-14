@@ -135,6 +135,7 @@
 \renewcommand{\footrulewidth}{\z@}
 
 \def\triggerappendix{0}
+\def\triggerschaptertoc{1}
 \newcounter{appendix}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -305,6 +306,7 @@
 
 \renewcommand\@dotsep{0.1}
 \renewcommand\tableofcontents{%
+  \gdef\triggerschaptertoc{0}%
   \chapter*{\mytableofcontentsname}
   \thispagestyle{empty}%
   \begin{singlespace}%
@@ -380,16 +382,12 @@
     \ifnum \c@secnumdepth > \m@ne
       \refstepcounter{chapter}%
       \typeout{\@chapapp\space\thechapter.}%
-      \ifnum \thechapter = 1 \else%
-        \addtocontents{toc}{\protect\contentsline{space}{}{}{}}%
-      \fi%
+      \addtocontents{toc}{\protect\contentsline{space}{}{}{}}%
       \addcontentsline{toc}{chapter}{%
         \protect\numberline{\thechapter}\texorpdfstring{\uppercase{#1}}{#1}%
       }%
     \else
-      \ifnum \thechapter = 1 \else%
-        \addtocontents{toc}{\protect\contentsline{space}{}{}{}}%
-      \fi%
+      \addtocontents{toc}{\protect\contentsline{space}{}{}{}}%
       \addcontentsline{toc}{chapter}{\texorpdfstring{\uppercase{#1}}{#1}}%
     \fi
   \fi
@@ -411,9 +409,8 @@
   \par\addvspace{26pt}%
 }
 \def\@schapter#1{%
-  \ifnum\value{chapter} = 0%
+  \ifnum \triggerschaptertoc = 1%
     \addcontentsline{toc}{chapter}{\texorpdfstring{\uppercase{#1}}{#1}}%
-    \addtocontents{toc}{\protect\contentsline{space}{}{}{}}%
   \fi%
   \@makeschapterhead{#1}%
   \@afterheading%
