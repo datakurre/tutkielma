@@ -10,6 +10,9 @@
 \def\fileinfo{JYU/IT/CS Thesis}
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{tutkielma}[\filedate\space\fileversion\space\fileinfo]
+% http://tex.stackexchange.com/questions/147243/a-class-with-default-language-settings
+\RequirePackage{etoolbox}
+\preto\@classoptionslist{english,finnish}
 \typeout{tutkielma <\filedate:\fileversion> - Jyväskylän yliopiston Informaatioteknologian tiedekunnan Tietojenkäsittelytieteiden laitoksen opinnäytteille}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -50,7 +53,8 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage{textcomp}
 \RequirePackage[utf8]{inputenc}
-\RequirePackage[english, finnish]{babel}
+\RequirePackage{babel}
+\RequirePackage{iflang}
 
 \def\myabstractname{Tiivistelm\"a}
 \def\mykeywordsname{Avainsanat}
@@ -86,7 +90,11 @@
 \def\tutkielma@keywords{Luettele, t\"ah\"an, avain, sanat}
 \def\tutkielma@foreignkeywords{Put, your, keywords, here}
 
-\def\mybibliographystyle{tutkielma}
+\IfLanguageName{finnish}{%
+  \def\mybibliographystyle{tutkielma}%
+}{%
+  \def\mybibliographystyle{tutkielma.en}%
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Date
