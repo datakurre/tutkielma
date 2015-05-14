@@ -308,6 +308,7 @@
 \renewcommand\tableofcontents{%
   \gdef\triggerschaptertoc{0}%
   \chapter*{\mytableofcontentsname}
+  \pdfbookmark{\mytableofcontentsname}{contents}
   \thispagestyle{empty}%
   \begin{singlespace}%
     \@starttoc{toc}%
