@@ -335,7 +335,23 @@
   \fi%
 }
 
+\def\@tocline#1#2#3#4#5{%
+  \ifnum #1 > \c@tocdepth \else%
+    \vskip \z@ \@plus.2\p@ {%
+      \leftskip #2\relax \rightskip \@tocrmarg \parfillskip -\rightskip%
+      \parindent #2\relax\@afterindenttrue%
+      \interlinepenalty\@M%
+      \leavevmode%
+      \@tempdima #3\relax%
+      \advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip%
+      {#4}\nobreak%
+      \par%
+    }%
+  \fi%
+}
+
 \newcommand*\l@space{\addvspace{\baselineskip}}
+\newcommand*\l@schapter{\@tocline{\z@}{\z@}{4.5ex}}
 \renewcommand*\l@chapter{\@dottedtocline{\z@}{\z@}{4.5ex}}
 \renewcommand*\l@section{\@dottedtocline{\z@}{4.5ex}{6ex}}
 \renewcommand*\l@subsection{\@dottedtocline{\z@}{10.5ex}{7.5ex}}
@@ -410,7 +426,7 @@
 }
 \def\@schapter#1{%
   \ifnum \triggerschaptertoc = 1%
-    \addcontentsline{toc}{chapter}{\texorpdfstring{\uppercase{#1}}{#1}}%
+    \addcontentsline{toc}{schapter}{\texorpdfstring{\uppercase{#1}}{#1}}%
   \fi%
   \@makeschapterhead{#1}%
   \@afterheading%
