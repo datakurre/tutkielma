@@ -334,9 +334,9 @@
 }
 
 \newcommand*\l@space{\addvspace{\baselineskip}}
-\renewcommand*\l@chapter{\@dottedtocline{\z@}{\z@}{2.25ex}}
-\renewcommand*\l@section{\@dottedtocline{\z@}{2.25ex}{3.75ex}}
-\renewcommand*\l@subsection{\@dottedtocline{\z@}{6ex}{5.25ex}}
+\renewcommand*\l@chapter{\@dottedtocline{\z@}{\z@}{4.5ex}}
+\renewcommand*\l@section{\@dottedtocline{\z@}{4.5ex}{6ex}}
+\renewcommand*\l@subsection{\@dottedtocline{\z@}{10.5ex}{7.5ex}}
 \newcommand*\l@appendix{\@dottedtocline{\z@}{\z@}{\z@}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
