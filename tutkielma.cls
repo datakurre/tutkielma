@@ -56,43 +56,76 @@
 \RequirePackage{babel}
 \RequirePackage{iflang}
 
-\def\myabstractname{Tiivistelm\"a}
-\def\mykeywordsname{Avainsanat}
-\def\mytableofcontentsname{Sis\"allys}
-\def\myexamplename{Esimerkki}
-\def\myfigurename{Kuvio}
-\def\mytablename{Taulukko}
-\def\mybibname{L\"ahteet}
-\def\mysectionname{Luku}
-\def\myforeignabstractname{Abstract}
-\def\myforeignkeywordsname{Keywords}
-
-\def\mylastsep{ja}
-\def\mypageabbrv{s.}
-\def\mypagesabbrv{s.}
-\def\myforeignpagesabbrv{p.}
-
-\def\tutkielma@title{Tutkielman otsikko}
-\def\tutkielma@foreigntitle{The title of the thesis}
-\def\tutkielma@titlesecond{Aliotsikko}
-\def\tutkielma@author{Tutkielman kirjoittaja}
-\def\tutkielma@date{\myday.\mymonth.\myyear}
-\def\tutkielma@year{\myyear}
-\def\tutkielma@location{Jyv\"askyl\"a}
-\def\tutkielma@university{Jyv\"askyl\"an yliopisto}
-\def\tutkielma@foreignuniversity{University of Jyv\"askyl\"a}
-\def\tutkielma@department{Tietojenk\"asittelytieteiden laitos}
-\def\tutkielma@subject{Tietoj\"arjestelm\"atieteen}
-\def\tutkielma@type{pro tutkielma -tutkielma}
-\def\tutkielma@foreigntype{Masters thesis}
-\def\tutkielma@version{}
-\def\tutkielma@note{}
-\def\tutkielma@keywords{Luettele, t\"ah\"an, avain, sanat}
-\def\tutkielma@foreignkeywords{Put, your, keywords, here}
-
 \IfLanguageName{finnish}{%
+  \def\myabstractname{Tiivistelm\"a}
+  \def\mykeywordsname{Avainsanat}
+  \def\mytableofcontentsname{Sis\"allys}
+  \def\myexamplename{Esimerkki}
+  \def\myfigurename{Kuvio}
+  \def\mytablename{Taulukko}
+  \def\mybibname{L\"ahteet}
+  \def\mysectionname{Luku}
+  \def\myforeignabstractname{Abstract}
+  \def\myforeignkeywordsname{Keywords}
+
+  \def\mylastsep{ja}
+  \def\mypageabbrv{s.}
+  \def\mypagesabbrv{s.}
+  \def\myforeignpagesabbrv{p.}
+
+  \def\tutkielma@title{Tutkielman otsikko}
+  \def\tutkielma@foreigntitle{The title of the thesis}
+  \def\tutkielma@titlesecond{Aliotsikko}
+  \def\tutkielma@author{Tutkielman kirjoittaja}
+  \def\tutkielma@date{\myday.\mymonth.\myyear}
+  \def\tutkielma@year{\myyear}
+  \def\tutkielma@location{Jyv\"askyl\"a}
+  \def\tutkielma@university{Jyv\"askyl\"an yliopisto}
+  \def\tutkielma@foreignuniversity{University of Jyv\"askyl\"a}
+  \def\tutkielma@department{Tietojenk\"asittelytieteiden laitos}
+  \def\tutkielma@subject{Tietoj\"arjestelm\"atieteen}
+  \def\tutkielma@type{pro tutkielma -tutkielma}
+  \def\tutkielma@foreigntype{Masters thesis}
+  \def\tutkielma@version{}
+  \def\tutkielma@note{}
+  \def\tutkielma@keywords{Luettele, t\"ah\"an, avain, sanat}
+  \def\tutkielma@foreignkeywords{Put, your, keywords, here}
+
   \def\mybibliographystyle{tutkielma}%
 }{%
+  \def\myabstractname{Abstract}
+  \def\mykeywordsname{Keywords}
+  \def\mytableofcontentsname{Table of contents}
+  \def\myexamplename{Example}
+  \def\myfigurename{Figure}
+  \def\mytablename{Table}
+  \def\mybibname{References}
+  \def\mysectionname{Chapter}
+  \def\myforeignabstractname{Tiivistelm\"a}
+  \def\myforeignkeywordsname{Avainsanat}
+
+  \def\mylastsep{and}
+  \def\mypageabbrv{p.}
+  \def\mypagesabbrv{p.}
+  \def\myforeignpagesabbrv{s.}
+
+  \def\tutkielma@title{Tutkielman otsikko}
+  \def\tutkielma@foreigntitle{The title of the thesis}
+  \def\tutkielma@titlesecond{Aliotsikko}
+  \def\tutkielma@author{Tutkielman kirjoittaja}
+  \def\tutkielma@date{\myday.\mymonth.\myyear}
+  \def\tutkielma@year{\myyear}
+  \def\tutkielma@location{Jyv\"askyl\"a}
+  \def\tutkielma@university{Jyv\"askyl\"an yliopisto}
+  \def\tutkielma@foreignuniversity{University of Jyv\"askyl\"a}
+  \def\tutkielma@department{Tietojenk\"asittelytieteiden laitos}
+  \def\tutkielma@subject{Tietoj\"arjestelm\"atieteen}
+  \def\tutkielma@type{pro tutkielma -tutkielma}
+  \def\tutkielma@foreigntype{Masters thesis}
+  \def\tutkielma@version{}
+  \def\tutkielma@note{}
+  \def\tutkielma@keywords{Luettele, t\"ah\"an, avain, sanat}
+
   \def\mybibliographystyle{tutkielma.en}%
 }
 
