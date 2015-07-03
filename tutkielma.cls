@@ -229,7 +229,8 @@
       \centerline{\tutkielma@author}%
     \else%
       \centerline{%
-        \tutkielma@authors%~\mylastsep~\tutkielma@author%
+        \tutkielma@authors%
+        ~\mylastsep~\tutkielma@author%
       }%
     \fi%
     \begin{onehalfspace}%
