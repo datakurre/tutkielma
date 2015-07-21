@@ -276,14 +276,16 @@
   \fi
   \tutkielma@location:~\tutkielma@university,~\myyear,~\ref{TotPages}~\mypagesabbrv\\
   \tutkielma@type
-  \par\addvspace{26pt}
+  \par\addvspace{15pt}
 }{%
-  \addvspace{26pt}\par
-  \setlength{\keywordswidth}{\hsize}
-  \setbox0=\hbox{\mykeywordsname:\hskip 5ex}
-  \addtolength{\keywordswidth}{-\wd0}
-  \addtolength{\keywordswidth}{-2.5pt}
-  \noindent\box0\parbox[t][][t]{\keywordswidth}{\tutkielma@keywords}
+\addvspace{15pt}\par
+\noindent\mykeywordsname:~\tutkielma@keywords
+% \addvspace{26pt}\par
+% \setlength{\keywordswidth}{\hsize}
+% \setbox0=\hbox{\mykeywordsname:\hskip 5ex}
+% \addtolength{\keywordswidth}{-\wd0}
+% \addtolength{\keywordswidth}{-2.5pt}
+% \noindent\box0\parbox[t][][t]{\keywordswidth}{\tutkielma@keywords}
 }
 \newenvironment{foreignabstract}{%
   \chapter*{\myforeignabstractname}
@@ -300,14 +302,15 @@
   \fi
   \tutkielma@location:~\tutkielma@foreignuniversity,~\myyear,~\ref{TotPages}~\myforeignpagesabbrv\\
   \tutkielma@foreigntype
-  \par\addvspace{26pt}
+  \par\addvspace{15pt}
 }{%
-  \addvspace{26pt}\par
-  \setlength{\keywordswidth}{\hsize}
-  \setbox0=\hbox{\myforeignkeywordsname:\hskip 5ex}
-  \addtolength{\keywordswidth}{-\wd0}
-  \addtolength{\keywordswidth}{-2.5pt}
-  \noindent\box0\parbox[t][][t]{\keywordswidth}{\tutkielma@foreignkeywords}
+\addvspace{15pt}\par
+\noindent\myforeignkeywordsname:~\tutkielma@foreignkeywords
+% \setlength{\keywordswidth}{\hsize}
+% \setbox0=\hbox{\myforeignkeywordsname:\hskip 5ex}
+% \addtolength{\keywordswidth}{-\wd0}
+% \addtolength{\keywordswidth}{-2.5pt}
+% \noindent\box0\parbox[t][][t]{\keywordswidth}{\tutkielma@foreignkeywords}
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Table of contents
