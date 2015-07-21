@@ -328,6 +328,7 @@
   \begin{singlespace}%
     \@starttoc{toc}%
   \end{singlespace}%
+  \thispagestyle{empty}%
 }
 
 \def\@dottedtocline#1#2#3#4#5{%
