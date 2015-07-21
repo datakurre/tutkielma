@@ -57,7 +57,7 @@
 \RequirePackage{iflang}
 
 \def\myabstractname{Tiivistelm\"a}
-\def\mykeywordsname{Avainsanat}
+\def\mykeywordsname{Asiasanat}
 \def\mytableofcontentsname{Sis\"allys}
 \def\myexamplename{Esimerkki}
 \def\myfigurename{Kuvio}
@@ -83,7 +83,7 @@
 \def\tutkielma@foreignuniversity{University of Jyv\"askyl\"a}
 \def\tutkielma@department{Tietojenk\"asittelytieteiden laitos}
 \def\tutkielma@subject{Tietoj\"arjestelm\"atieteen}
-\def\tutkielma@type{pro tutkielma -tutkielma}
+\def\tutkielma@type{pro gradu -tutkielma}
 \def\tutkielma@foreigntype{Masters thesis}
 \def\tutkielma@version{}
 \def\tutkielma@note{}
