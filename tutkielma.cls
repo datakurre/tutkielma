@@ -19,7 +19,8 @@
 % Layout
 %
 
-\LoadClass[a4paper,12pt,twoside]{report}
+\LoadClass[a4paper,12pt]{report}
+% \LoadClass[a4paper,12pt,twoside]{report}
 \RequirePackage{everyshi}[1994/12/09]
 \RequirePackage{mathpazo}
 \RequirePackage[left=30mm,right=30mm,top=30mm,bottom=25mm,foot=12pt]{geometry}
@@ -135,8 +136,10 @@
 \RequirePackage{fancyhdr}
 \pagestyle{fancyplain}
 
-\fancyhead[LE,RO]{\thepage}
-\fancyhead[CE,RE,CO,LO]{}
+\fancyhead[C]{\thepage}
+\fancyhead[L,R]{}
+% \fancyhead[LE,RO]{\thepage}
+% \fancyhead[CE,RE,CO,LO]{}
 \fancyfoot{}
 
 \renewcommand{\headrulewidth}{\z@}
