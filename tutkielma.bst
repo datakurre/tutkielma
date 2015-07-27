@@ -209,7 +209,7 @@ FUNCTION {space.word}
 
  % The language selected here is FINNISH
 FUNCTION {bbl.and}
-{ "ja" }
+{ "\&" }
 
 FUNCTION {bbl.etal}
 { "ym." }
@@ -383,7 +383,7 @@ FUNCTION {format.names}
   numnames 'namesleft :=
     { namesleft #0 > }
     { s nameptr
-      "{vv~}{ll}{ jj}{ f{.}.}"
+      "{vv~}{ll}{ jj}{, f{. }.}"
       format.name$
       bibinfo bibinfo.check
       't :=

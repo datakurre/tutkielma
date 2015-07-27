@@ -110,9 +110,9 @@
 %
 
 \RequirePackage{tocbibind}
-\RequirePackage[comma, longnamesfirst]{natbib}
+\RequirePackage[longnamesfirst]{natbib}
+\bibpunct[,~]{(}{)}{ ja}{a}{,}{,~}
 
-%\bibpunct{(}{)}{,}{a}{}{;}
 \setlength{\bibhang}{5ex}
 \setlength{\bibsep}{\z@}
 
