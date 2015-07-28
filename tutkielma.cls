@@ -110,7 +110,7 @@
 %
 
 \RequirePackage{tocbibind}
-\RequirePackage[longnamesfirst]{natbib}
+\RequirePackage[longnamesfirst,sort]{natbib}
 \bibpunct[,~]{(}{)}{ ja}{a}{,}{,~}
 
 \setlength{\bibhang}{5ex}
