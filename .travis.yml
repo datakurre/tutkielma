@@ -1,7 +1,7 @@
-language: python
-python: 2.7
+language: generic
 sudo: false
 cache:
   directories: .texlive
-install: source install-tl.sh
-script: make
+script:
+- source texlive.sh
+- make
