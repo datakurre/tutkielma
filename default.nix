@@ -9,17 +9,16 @@
 #   function nix() { echo nix-shell --pure --run \"$@\" | sh; }
 #   $ nix make [args]
 
-with import <nixpkgs> {}; {
-  myEnv = stdenv.mkDerivation {
-    name = "myEnv";
-    buildInputs = [
-      (texLiveAggregationFun { paths = [
-        texLive
-        texLiveAuctex
-        texLiveExtra
-        texLivePGF
-      ];})
-      gnumake
-    ];
-  };
+with import <nixpkgs> {};
+stdenv.mkDerivation {
+  name = "env";
+  buildInputs = [
+    (texLiveAggregationFun { paths = [
+      texLive
+      texLiveAuctex
+      texLiveExtra
+      texLivePGF
+    ];})
+    gnumake
+  ];
 }
