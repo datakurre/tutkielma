@@ -63,7 +63,7 @@ option_write18_restricted 1
 portable 1
 EOF
 
-$(diff $PROFILE $PROFILE_OLD)
+result=$(diff $PROFILE $PROFILE_OLD)
 if [ $? != 0 ]
 then
   rm -rf $TARGET_DIR
