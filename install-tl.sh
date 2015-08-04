@@ -1,11 +1,9 @@
 #!/bin/bash
-DATE=`date`
 TARGET_DIR=$PWD/.texlive
 PROFILE=$PWD/.texlive.profile
 PROFILE_OLD=$TARGET_DIR/.texlive.profile
 
 cat > $PROFILE <<EOF
-# texlive.profile generated on $DATE
 selected_scheme scheme-custom
 TEXDIR $TARGET_DIR
 TEXMFCONFIG $TEXMFSYSCONFIG
@@ -65,7 +63,8 @@ option_write18_restricted 1
 portable 1
 EOF
 
-if [ ! $(diff $PROFILE $PROFILE_OLD) ]
+$(diff $PROFILE $PROFILE_OLD)
+if [ $? != 0 ]
 then
   rm -rf $TARGET_DIR
   curl -LO http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
