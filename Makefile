@@ -10,4 +10,4 @@ clean:
 	latexmk -CA -quiet
 	rm -fv *.bbl
 
-.PHONE: all clean $(TEXFILE).pdf
+.PHONY: all clean $(TEXFILE).pdf
