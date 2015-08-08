@@ -6,7 +6,7 @@ all: $(TEXFILE).pdf
 $(TEXFILE).pdf: $(TEXFILE).tex $(CHAPTERS)
 	@latexmk -pdf -recorder -interaction=nonstopmode -use-make -quiet $(TEXFILE)
 
-watch: $(TEXFILE).pdf
+watch:
 	@latexmk -pvc -pdf -recorder -interaction=nonstopmode -use-make -quiet $(TEXFILE)
 
 clean:
