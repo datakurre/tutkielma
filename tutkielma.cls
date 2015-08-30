@@ -83,6 +83,7 @@
 \def\tutkielma@university{Jyv\"askyl\"an yliopisto}
 \def\tutkielma@foreignuniversity{University of Jyv\"askyl\"a}
 \def\tutkielma@department{Tietojenk\"asittelytieteiden laitos}
+\def\tutkielma@supervisor{Tutkielman ohjaaja}
 \def\tutkielma@subject{Tietoj\"arjestelm\"atieteen}
 \def\tutkielma@type{pro gradu -tutkielma}
 \def\tutkielma@foreigntype{Masters thesis}
@@ -184,6 +185,17 @@
   \else \gdef\tutkielma@authorf{#3, #1 #2}
   \fi
 }
+\def\tutkielma@supervisors{}
+\def\tutkielma@supervisorfs{}
+\newcounter{tutkielma@supervisorcount}
+\newcommand{\supervisor}[2]{%
+  \addtocounter{tutkielma@supervisorcount}{1}
+  \gdef\tutkielma@supervisor{#1 #2}
+  \ifnum \value{tutkielma@supervisorcount} > 1
+    \@cons\tutkielma@supervisors{,~}
+  \fi
+  \@cons\tutkielma@supervisors{\tutkielma@supervisor}
+}
 \newcommand{\location}[1]{%
   \gdef\tutkielma@location{#1}
 }
@@ -277,6 +289,9 @@
     \else \tutkielma@title~/~\tutkielma@authors~\mylastsep~\tutkielma@author\\
     \fi
   \fi
+  \ifnum \value{tutkielma@supervisorcount} > 0
+  Ohjaajat: \tutkielma@supervisors\\
+  \fi
   \tutkielma@location:~\tutkielma@university,~\myyear,~\ref{TotPages}~\mypagesabbrv\\
   \tutkielma@type
   \par\addvspace{15pt}
@@ -303,6 +318,7 @@
     \else \tutkielma@title~/~\tutkielma@authors~\mylastsep~\tutkielma@author\\
     \fi
   \fi
+  Supervisors: \tutkielma@supervisors\\
   \tutkielma@location:~\tutkielma@foreignuniversity,~\myyear,~\ref{TotPages}~\myforeignpagesabbrv\\
   \tutkielma@foreigntype
   \par\addvspace{15pt}
