@@ -65,6 +65,10 @@
 \def\mytablename{Taulukko}
 \def\mybibname{L\"ahteet}
 \def\mysectionname{Luku}
+\def\mysupervisorname{Ohjaaja}
+\def\myforeignsupervisorname{Supervisor}
+\def\mysupervisorsname{Ohjaajat}
+\def\myforeignsupervisorsname{Supervisors}
 \def\myforeignabstractname{Abstract}
 \def\myforeignkeywordsname{Keywords}
 
@@ -185,16 +189,18 @@
   \else \gdef\tutkielma@authorf{#3, #1 #2}
   \fi
 }
-\def\tutkielma@supervisors{}
 \def\tutkielma@supervisorfs{}
 \newcounter{tutkielma@supervisorcount}
 \newcommand{\supervisor}[2]{%
   \addtocounter{tutkielma@supervisorcount}{1}
-  \gdef\tutkielma@supervisor{#1 #2}
-  \ifnum \value{tutkielma@supervisorcount} > 1
-    \@cons\tutkielma@supervisors{,~}
+  \ifnum \value{tutkielma@supervisorcount} = 2
+    \@cons\tutkielma@supervisorfs{\tutkielma@supervisorf}
   \fi
-  \@cons\tutkielma@supervisors{\tutkielma@supervisor}
+  \ifnum \value{tutkielma@supervisorcount} > 2
+    \@cons\tutkielma@supervisorfs{;~}
+    \@cons\tutkielma@supervisorfs{\tutkielma@supervisorf}
+  \fi
+  \gdef\tutkielma@supervisorf{#2, #1}
 }
 \newcommand{\location}[1]{%
   \gdef\tutkielma@location{#1}
@@ -284,13 +290,17 @@
     \tutkielma@title\\
   \else
     \tutkielma@authorfs;~\tutkielma@authorf\\
-    \setbox0=\hbox{\tutkielma@title~/~\tutkielma@authors~\mylastsep~\tutkielma@author}
-    \ifnum \wd0 > \hsize \tutkielma@title\\
-    \else \tutkielma@title~/~\tutkielma@authors~\mylastsep~\tutkielma@author\\
-    \fi
+    \tutkielma@title\\
+%   \setbox0=\hbox{\tutkielma@title~/~\tutkielma@authors~\mylastsep~\tutkielma@author}
+%   \ifnum \wd0 > \hsize \tutkielma@title\\
+%   \else \tutkielma@title~/~\tutkielma@authors~\mylastsep~\tutkielma@author\\
+%   \fi
   \fi
-  \ifnum \value{tutkielma@supervisorcount} > 0
-  Ohjaajat: \tutkielma@supervisors\\
+  \ifnum \value{tutkielma@supervisorcount} = 1
+    \mysupervisorname: \tutkielma@supervisorf\\
+  \fi
+  \ifnum \value{tutkielma@supervisorcount} > 1
+    \mysupervisorsname: \tutkielma@supervisorfs;~\tutkielma@supervisorf\\
   \fi
   \tutkielma@location:~\tutkielma@university,~\myyear,~\ref{TotPages}~\mypagesabbrv\\
   \tutkielma@type
@@ -313,12 +323,18 @@
     \tutkielma@foreigntitle\\
   \else
     \tutkielma@authorfs;~\tutkielma@authorf\\
-    \setbox0=\hbox{\tutkielma@title~/~\tutkielma@authors~\mylastsep~\tutkielma@author}
-    \ifnum \wd0 > \hsize \tutkielma@title\\
-    \else \tutkielma@title~/~\tutkielma@authors~\mylastsep~\tutkielma@author\\
-    \fi
+    \tutkielma@foreigntitle\\
+%   \setbox0=\hbox{\tutkielma@foreigntitle~/~\tutkielma@authors~\mylastsep~\tutkielma@author}
+%   \ifnum \wd0 > \hsize \tutkielma@foreigntitle\\
+%   \else \tutkielma@foreigntitle~/~\tutkielma@authors~\mylastsep~\tutkielma@author\\
+%   \fi
   \fi
-  Supervisors: \tutkielma@supervisors\\
+  \ifnum \value{tutkielma@supervisorcount} = 1
+    \myforeignsupervisorname: \tutkielma@supervisorf\\
+  \fi
+  \ifnum \value{tutkielma@supervisorcount} > 1
+    \myforeignsupervisorsname: \tutkielma@supervisorfs;~\tutkielma@supervisorf\\
+  \fi
   \tutkielma@location:~\tutkielma@foreignuniversity,~\myyear,~\ref{TotPages}~\myforeignpagesabbrv\\
   \tutkielma@foreigntype
   \par\addvspace{15pt}
