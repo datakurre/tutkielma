@@ -65,6 +65,7 @@
 \def\mytablename{Taulukko}
 \def\mybibname{L\"ahteet}
 \def\mysectionname{Luku}
+\def\myappendixname{Liite}
 \def\mysupervisorname{Ohjaaja}
 \def\myforeignsupervisorname{Supervisor}
 \def\mysupervisorsname{Ohjaajat}
@@ -519,6 +520,21 @@
   \else%
     \ifnum \wd0 = \wd1 (\MakeUppercase{\mysectionname}~\ref{#2}\relayarg)%
     \else (\relayarg\ \MakeUppercase{\mysectionname}~\ref{#2}#1)%
+    \fi%
+  \fi%
+}
+
+\newcommand \appxref[1][] {%
+  \def\relayarg{{#1}}%
+  \appxrefr%
+}
+\newcommand \appxrefr[2][default] {%
+  \setbox0=\hbox{#1}%
+  \setbox1=\hbox{default}%
+  \ifnum \wd0 = 0 (\relayarg\ \MakeUppercase{\myappendixname}~\ref{#2})%
+  \else%
+    \ifnum \wd0 = \wd1 (\MakeUppercase{\myappendixname}~\ref{#2}\relayarg)%
+    \else (\relayarg\ \MakeUppercase{\myappendixname}~\ref{#2}#1)%
     \fi%
   \fi%
 }
