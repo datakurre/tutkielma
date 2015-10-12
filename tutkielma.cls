@@ -121,7 +121,7 @@
 \setlength{\bibhang}{5ex}
 \setlength{\bibsep}{\z@}
 
-\RequirePackage{url}
+\RequirePackage[hyphens]{url}
 \urlstyle{same}
 
 \bibliographystyle{\mybibliographystyle}
