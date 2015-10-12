@@ -1,24 +1,44 @@
-# Usage:
-#   $ nix-shell --pure --run make
-
-# With persistent derivation:
-#   $ nix-instantiate --indirect --add-root $PWD/shell.drv
-#   $ nix-shell $PWD/shell.drv --pure --run make
-
-# With bash alias:
-#   function nix() { echo nix-shell --pure --run \"$@\" | sh; }
-#   $ nix make [args]
-
 with import <nixpkgs> {};
 stdenv.mkDerivation {
   name = "env";
   buildInputs = [
-    (texLiveAggregationFun { paths = [
-      texLive
-      texLiveAuctex
-      texLiveExtra
-      texLivePGF
-    ];})
+    (texlive.combine {
+      inherit (texlive)
+        scheme-basic
+        amsfonts
+        babel
+        babel-finnish
+        beebe
+        ec
+        enumitem
+        epstopdf
+        etoolbox
+        footmisc
+        geometry
+        graphics
+        hyperref
+        hyphen-finnish
+        latex
+        latexmk
+        mathpazo
+        microtype
+        ms
+        multirow
+        natbib
+        oberdiek
+        palatino
+        pdfpages
+        pgf
+        preview
+        pstricks
+        setspace
+        subfigure
+        tocbibind
+        totpages
+        url
+        xcolor
+        xkeyval;
+    })
     gnumake
   ];
 }
