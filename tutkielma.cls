@@ -61,11 +61,16 @@
 \def\mykeywordsname{Asiasanat}
 \def\mytableofcontentsname{Sis\"allys}
 \def\myexamplename{Esimerkki}
+\def\myexamplenameplural{Esimerkit}
 \def\myfigurename{Kuvio}
+\def\myfigurenameplural{Kuviot}
 \def\mytablename{Taulukko}
+\def\mytablenameplural{Taulukot}
 \def\mybibname{L\"ahteet}
 \def\mysectionname{Luku}
+\def\mysectionnameplural{Luvut}
 \def\myappendixname{Liite}
+\def\myappendixnameplural{Liitteet}
 \def\mysupervisorname{Ohjaaja}
 \def\myforeignsupervisorname{Supervisor}
 \def\mysupervisorsname{Ohjaajat}
@@ -507,38 +512,6 @@
   {5}{\z@}{-26pt}{26pt}{\normalfont \normalsize}%
 }
 
-% \newcommand \secref[2][] {\MakeUppercase{\mysectionname}~\ref{#2}#1}
-
-\newcommand \secref[1][] {%
-  \def\relayarg{{#1}}%
-  \secrefr%
-}
-\newcommand \secrefr[2][default] {%
-  \setbox0=\hbox{#1}%
-  \setbox1=\hbox{default}%
-  \ifnum \wd0 = 0 (\relayarg\ \MakeUppercase{\mysectionname}~\ref{#2})%
-  \else%
-    \ifnum \wd0 = \wd1 (\MakeUppercase{\mysectionname}~\ref{#2}\relayarg)%
-    \else (\relayarg\ \MakeUppercase{\mysectionname}~\ref{#2}#1)%
-    \fi%
-  \fi%
-}
-
-\newcommand \appxref[1][] {%
-  \def\relayarg{{#1}}%
-  \appxrefr%
-}
-\newcommand \appxrefr[2][default] {%
-  \setbox0=\hbox{#1}%
-  \setbox1=\hbox{default}%
-  \ifnum \wd0 = 0 (\relayarg\ \MakeUppercase{\myappendixname}~\ref{#2})%
-  \else%
-    \ifnum \wd0 = \wd1 (\MakeUppercase{\myappendixname}~\ref{#2}\relayarg)%
-    \else (\relayarg\ \MakeUppercase{\myappendixname}~\ref{#2}#1)%
-    \fi%
-  \fi%
-}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Lists and quotes
 %
@@ -585,7 +558,7 @@
   \fi}
 \def\itemize{%
 %  \quotefontsize
-%  \quotespacing        
+%  \quotespacing
   \ifnum \@itemdepth >\thr@@\@toodeep\else
     \advance\@itemdepth\@ne
     \edef\@itemitem{labelitem\romannumeral\the\@itemdepth}%
@@ -648,55 +621,6 @@
 \renewcommand \thetable {\@arabic\c@table}
 \renewcommand \thesubtable {\alph{subtable}}
 \renewcommand \theexample {\@arabic\c@example}
-
-% \newcommand \figref[2][] {\MakeUppercase{\myfigurename}~\ref{#2}#1}
-% \newcommand \tabref[2][] {\MakeUppercase{\mytablename}~\ref{#2}#1}
-% \newcommand \exref[2][] {\MakeUppercase{\myexamplename}~\ref{#2}#1}
-
-\newcommand \figref[1][] {%
-  \def\relayarg{{#1}}%
-  \figrefr%
-}
-\newcommand \figrefr[2][default] {%
-  \setbox0=\hbox{#1}%
-  \setbox1=\hbox{default}%
-  \ifnum \wd0 = 0 (\relayarg\ \MakeUppercase{\myfigurename}~\ref{#2})%
-  \else%
-    \ifnum \wd0 = \wd1 (\MakeUppercase{\myfigurename}~\ref{#2}\relayarg)%
-    \else (\relayarg\ \MakeUppercase{\myfigurename}~\ref{#2}#1)%
-    \fi%
-  \fi%
-}
-
-\newcommand \tabref[1][] {%
-  \def\relayarg{{#1}}%
-  \tabrefr%
-}
-\newcommand \tabrefr[2][default] {%
-  \setbox0=\hbox{#1}%
-  \setbox1=\hbox{default}%
-  \ifnum \wd0 = 0 (\relayarg\ \MakeUppercase{\mytablename}~\ref{#2})%
-  \else%
-    \ifnum \wd0 = \wd1 (\MakeUppercase{\mytablename}~\ref{#2}\relayarg)%
-    \else (\relayarg\ \MakeUppercase{\mytablename}~\ref{#2}#1)%
-    \fi%
-  \fi%
-}
-
-\newcommand \exref[1][] {%
-  \def\relayarg{{#1}}%
-  \exrefr%
-}
-\newcommand \exrefr[2][default] {%
-  \setbox0=\hbox{#1}%
-  \setbox1=\hbox{default}%
-  \ifnum \wd0 = 0 (\relayarg\ \MakeUppercase{\myexamplename}~\ref{#2})%
-  \else%
-    \ifnum \wd0 = \wd1 (\MakeUppercase{\myexamplename}~\ref{#2}\relayarg)%
-    \else (\relayarg\ \MakeUppercase{\myexamplename}~\ref{#2}#1)%
-    \fi%
-  \fi%
-}
 
 \def\fnum@example{\MakeUppercase{\myexamplename}\nobreakspace\theexample}
 \def\fnum@figure{\MakeUppercase{\myfigurename}\nobreakspace\thefigure}
@@ -830,4 +754,66 @@
     }%
     \par
   \endgroup
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Referencing figures, tables, etc
+%
+
+% \RequirePackage{varioref}
+\RequirePackage{cleveref}
+
+\crefname{table}{\MakeLowercase{\mytablename}}{\MakeLowercase{\mytablenameplural}}
+\crefname{figure}{\MakeLowercase{\myfigurename}}{\MakeLowercase{\myfigurenameplural}}
+\crefname{example}{\MakeLowercase{\myexamplename}}{\MakeLowercase{\myexamplenameplural}}
+\crefname{chapter}{\MakeLowercase{\mysectionname}}{\MakeLowercase{\mysectionnameplural}}
+\crefname{section}{\MakeLowercase{\mysectionname}}{\MakeLowercase{\mysectionnameplural}}
+\crefname{subsection}{\MakeLowercase{\mysectionname}}{\MakeLowercase{\mysectionnameplural}}
+\crefname{appendix}{\MakeLowercase{\myappendixname}}{\MakeLowercase{\myappendixnameplural}}
+
+\newcommand{\crefrangeconjunction}{--}
+\newcommand{\crefpairconjunction}{ \mylastsep~}
+\newcommand{\creflastconjunction}{ \mylastsep~}
+\newcommand{\crefpairgroupconjunction}{ \mylastsep~}
+\newcommand{\creflastgroupconjunction}{ \mylastsep~}
+
+\newcommand \crefpr[2][default] {%
+  \setbox0=\hbox{#1}%
+  \setbox1=\hbox{default}%
+  \ifnum \wd0 = 0 (\relayarg\ \cref{#2})%
+  \else%
+    \ifnum \wd0 = \wd1 (\cref{#2}\relayarg)%
+    \else (\relayarg\ \cref{#2}#1)%
+    \fi%
+  \fi%
+}
+
+\newcommand \crefp[1][] {%
+  \def\relayarg{{#1}}%
+  \crefpr%
+}
+
+\newcommand \figref[1][] {
+  \def\relayarg{{#1}}%
+  \crefpr%
+}
+
+\newcommand \tabref[1][] {
+  \def\relayarg{{#1}}%
+  \crefpr%
+}
+
+\newcommand \exref[1][] {%
+  \def\relayarg{{#1}}%
+  \crefpr%
+}
+
+\newcommand \secref[1][] {%
+  \def\relayarg{{#1}}%
+  \crefpr%
+}
+
+\newcommand \appxref[1][] {%
+  \def\relayarg{{#1}}%
+  \crefpr%
 }

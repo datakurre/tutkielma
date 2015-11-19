@@ -9,6 +9,7 @@ stdenv.mkDerivation {
         babel
         babel-finnish
         beebe
+        cleveref
         ec
         enumitem
         epstopdf
