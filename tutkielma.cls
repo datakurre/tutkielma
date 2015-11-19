@@ -47,6 +47,9 @@
 \setlength{\leftmarginv}{5ex}
 \setlength{\leftmarginvi}{5ex}
 
+\widowpenalty10000
+\clubpenalty10000
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Language
 %
