@@ -19,7 +19,8 @@
 % Layout
 %
 
-\LoadClass[a4paper,12pt,twoside]{report}
+\LoadClass[a4paper,12pt]{report}
+% \LoadClass[a4paper,12pt,twoside]{report}
 \RequirePackage{everyshi}[1994/12/09]
 \RequirePackage{mathpazo}
 \RequirePackage[left=30mm,right=30mm,top=30mm,bottom=25mm,foot=12pt]{geometry}
@@ -46,6 +47,9 @@
 \setlength{\leftmarginv}{5ex}
 \setlength{\leftmarginvi}{5ex}
 
+\widowpenalty10000
+\clubpenalty10000
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Language
 %
@@ -58,13 +62,23 @@
 
 \IfLanguageName{finnish}{%
   \def\myabstractname{Tiivistelm\"a}
-  \def\mykeywordsname{Avainsanat}
+  \def\mykeywordsname{Asiasanat}
   \def\mytableofcontentsname{Sis\"allys}
   \def\myexamplename{Esimerkki}
+  \def\myexamplenameplural{Esimerkit}
   \def\myfigurename{Kuvio}
+  \def\myfigurenameplural{Kuviot}
   \def\mytablename{Taulukko}
+  \def\mytablenameplural{Taulukot}
   \def\mybibname{L\"ahteet}
   \def\mysectionname{Luku}
+  \def\mysectionnameplural{Luvut}
+  \def\myappendixname{Liite}
+  \def\myappendixnameplural{Liitteet}
+  \def\mysupervisorname{Ohjaaja}
+  \def\myforeignsupervisorname{Supervisor}
+  \def\mysupervisorsname{Ohjaajat}
+  \def\myforeignsupervisorsname{Supervisors}
   \def\myforeignabstractname{Abstract}
   \def\myforeignkeywordsname{Keywords}
 
@@ -83,8 +97,9 @@
   \def\tutkielma@university{Jyv\"askyl\"an yliopisto}
   \def\tutkielma@foreignuniversity{University of Jyv\"askyl\"a}
   \def\tutkielma@department{Tietojenk\"asittelytieteiden laitos}
+  \def\tutkielma@supervisor{Tutkielman ohjaaja}
   \def\tutkielma@subject{Tietoj\"arjestelm\"atieteen}
-  \def\tutkielma@type{pro tutkielma -tutkielma}
+  \def\tutkielma@type{pro gradu -tutkielma}
   \def\tutkielma@foreigntype{Masters thesis}
   \def\tutkielma@version{}
   \def\tutkielma@note{}
@@ -92,17 +107,28 @@
   \def\tutkielma@foreignkeywords{Put, your, keywords, here}
 
   \def\mybibliographystyle{tutkielma}%
-}{%
+}
+{%
   \def\myabstractname{Abstract}
   \def\mykeywordsname{Keywords}
   \def\mytableofcontentsname{Table of contents}
   \def\myexamplename{Example}
+  \def\myexamplenameplural{Examples}
   \def\myfigurename{Figure}
+  \def\myfigurenameplural{Figures}
   \def\mytablename{Table}
+  \def\mytablenameplural{Tables}
   \def\mybibname{References}
   \def\mysectionname{Chapter}
+  \def\mysectionnameplural{Chapters}
+  \def\myappendixname{Appendix}
+  \def\myappendixnameplural{Appendixes}
+  \def\mysupervisorname{Supervisor}
+  \def\myforeignsupervisorname{Ohjaaja}
+  \def\mysupervisorsname{Supervisors}
+  \def\myforeignsupervisorsname{Ohjaajat}
   \def\myforeignabstractname{Tiivistelm\"a}
-  \def\myforeignkeywordsname{Avainsanat}
+  \def\myforeignkeywordsname{Asiasanat}
 
   \def\mylastsep{and}
   \def\mypageabbrv{p.}
@@ -111,7 +137,7 @@
 
   \def\tutkielma@title{Tutkielman otsikko}
   \def\tutkielma@foreigntitle{The title of the thesis}
-  \def\tutkielma@titlesecond{Aliotsikko}
+  \def\tutkielma@titlesecond{Subheading}
   \def\tutkielma@author{Tutkielman kirjoittaja}
   \def\tutkielma@date{\myday.\mymonth.\myyear}
   \def\tutkielma@year{\myyear}
@@ -119,8 +145,9 @@
   \def\tutkielma@university{Jyv\"askyl\"an yliopisto}
   \def\tutkielma@foreignuniversity{University of Jyv\"askyl\"a}
   \def\tutkielma@department{Tietojenk\"asittelytieteiden laitos}
+  \def\tutkielma@supervisor{Supervisor of the thesis}
   \def\tutkielma@subject{Tietoj\"arjestelm\"atieteen}
-  \def\tutkielma@type{pro tutkielma -tutkielma}
+  \def\tutkielma@type{pro gradu -tutkielma}
   \def\tutkielma@foreigntype{Masters thesis}
   \def\tutkielma@version{}
   \def\tutkielma@note{}
@@ -142,13 +169,13 @@
 %
 
 \RequirePackage{tocbibind}
-\RequirePackage[comma, longnamesfirst]{natbib}
+\RequirePackage[longnamesfirst,sort]{natbib}
+\bibpunct[,~]{(}{)}{ ja}{a}{,}{,~}
 
-%\bibpunct{(}{)}{,}{a}{}{;}
 \setlength{\bibhang}{5ex}
 \setlength{\bibsep}{\z@}
 
-\RequirePackage{url}
+\RequirePackage[hyphens]{url}
 \urlstyle{same}
 
 \bibliographystyle{\mybibliographystyle}
@@ -168,8 +195,10 @@
 \RequirePackage{fancyhdr}
 \pagestyle{fancyplain}
 
-\fancyhead[LE,RO]{\thepage}
-\fancyhead[CE,RE,CO,LO]{}
+\fancyhead[C]{\thepage}
+\fancyhead[L,R]{}
+% \fancyhead[LE,RO]{\thepage}
+% \fancyhead[CE,RE,CO,LO]{}
 \fancyfoot{}
 
 \renewcommand{\headrulewidth}{\z@}
@@ -213,6 +242,19 @@
   \ifnum \wd0 = 0 \gdef\tutkielma@authorf{#3, #1}
   \else \gdef\tutkielma@authorf{#3, #1 #2}
   \fi
+}
+\def\tutkielma@supervisorfs{}
+\newcounter{tutkielma@supervisorcount}
+\newcommand{\supervisor}[2]{%
+  \addtocounter{tutkielma@supervisorcount}{1}
+  \ifnum \value{tutkielma@supervisorcount} = 2
+    \@cons\tutkielma@supervisorfs{\tutkielma@supervisorf}
+  \fi
+  \ifnum \value{tutkielma@supervisorcount} > 2
+    \@cons\tutkielma@supervisorfs{;~}
+    \@cons\tutkielma@supervisorfs{\tutkielma@supervisorf}
+  \fi
+  \gdef\tutkielma@supervisorf{#2, #1}
 }
 \newcommand{\location}[1]{%
   \gdef\tutkielma@location{#1}
@@ -262,7 +304,8 @@
       \centerline{\tutkielma@author}%
     \else%
       \centerline{%
-        \tutkielma@authors%~\mylastsep~\tutkielma@author%
+        \tutkielma@authors%
+        ~\mylastsep~\tutkielma@author%
       }%
     \fi%
     \begin{onehalfspace}%
@@ -301,21 +344,30 @@
     \tutkielma@title\\
   \else
     \tutkielma@authorfs;~\tutkielma@authorf\\
-    \setbox0=\hbox{\tutkielma@title~/~\tutkielma@authors~\mylastsep~\tutkielma@author}
-    \ifnum \wd0 > \hsize \tutkielma@title\\
-    \else \tutkielma@title~/~\tutkielma@authors~\mylastsep~\tutkielma@author\\
-    \fi
+    \tutkielma@title\\
+%   \setbox0=\hbox{\tutkielma@title~/~\tutkielma@authors~\mylastsep~\tutkielma@author}
+%   \ifnum \wd0 > \hsize \tutkielma@title\\
+%   \else \tutkielma@title~/~\tutkielma@authors~\mylastsep~\tutkielma@author\\
+%   \fi
+  \fi
+  \ifnum \value{tutkielma@supervisorcount} = 1
+    \mysupervisorname: \tutkielma@supervisorf\\
+  \fi
+  \ifnum \value{tutkielma@supervisorcount} > 1
+    \mysupervisorsname: \tutkielma@supervisorfs;~\tutkielma@supervisorf\\
   \fi
   \tutkielma@location:~\tutkielma@university,~\myyear,~\ref{TotPages}~\mypagesabbrv\\
   \tutkielma@type
-  \par\addvspace{26pt}
+  \par\addvspace{15pt}
 }{%
-  \addvspace{26pt}\par
-  \setlength{\keywordswidth}{\hsize}
-  \setbox0=\hbox{\mykeywordsname:\hskip 5ex}
-  \addtolength{\keywordswidth}{-\wd0}
-  \addtolength{\keywordswidth}{-2.5pt}
-  \noindent\box0\parbox[t][][t]{\keywordswidth}{\tutkielma@keywords}
+\addvspace{15pt}\par
+\noindent\mykeywordsname:~\tutkielma@keywords
+% \addvspace{26pt}\par
+% \setlength{\keywordswidth}{\hsize}
+% \setbox0=\hbox{\mykeywordsname:\hskip 5ex}
+% \addtolength{\keywordswidth}{-\wd0}
+% \addtolength{\keywordswidth}{-2.5pt}
+% \noindent\box0\parbox[t][][t]{\keywordswidth}{\tutkielma@keywords}
 }
 \newenvironment{foreignabstract}{%
   \chapter*{\myforeignabstractname}
@@ -325,21 +377,29 @@
     \tutkielma@foreigntitle\\
   \else
     \tutkielma@authorfs;~\tutkielma@authorf\\
-    \setbox0=\hbox{\tutkielma@title~/~\tutkielma@authors~\mylastsep~\tutkielma@author}
-    \ifnum \wd0 > \hsize \tutkielma@title\\
-    \else \tutkielma@title~/~\tutkielma@authors~\mylastsep~\tutkielma@author\\
-    \fi
+    \tutkielma@foreigntitle\\
+%   \setbox0=\hbox{\tutkielma@foreigntitle~/~\tutkielma@authors~\mylastsep~\tutkielma@author}
+%   \ifnum \wd0 > \hsize \tutkielma@foreigntitle\\
+%   \else \tutkielma@foreigntitle~/~\tutkielma@authors~\mylastsep~\tutkielma@author\\
+%   \fi
+  \fi
+  \ifnum \value{tutkielma@supervisorcount} = 1
+    \myforeignsupervisorname: \tutkielma@supervisorf\\
+  \fi
+  \ifnum \value{tutkielma@supervisorcount} > 1
+    \myforeignsupervisorsname: \tutkielma@supervisorfs;~\tutkielma@supervisorf\\
   \fi
   \tutkielma@location:~\tutkielma@foreignuniversity,~\myyear,~\ref{TotPages}~\myforeignpagesabbrv\\
   \tutkielma@foreigntype
-  \par\addvspace{26pt}
+  \par\addvspace{15pt}
 }{%
-  \addvspace{26pt}\par
-  \setlength{\keywordswidth}{\hsize}
-  \setbox0=\hbox{\myforeignkeywordsname:\hskip 5ex}
-  \addtolength{\keywordswidth}{-\wd0}
-  \addtolength{\keywordswidth}{-2.5pt}
-  \noindent\box0\parbox[t][][t]{\keywordswidth}{\tutkielma@foreignkeywords}
+\addvspace{15pt}\par
+\noindent\myforeignkeywordsname:~\tutkielma@foreignkeywords
+% \setlength{\keywordswidth}{\hsize}
+% \setbox0=\hbox{\myforeignkeywordsname:\hskip 5ex}
+% \addtolength{\keywordswidth}{-\wd0}
+% \addtolength{\keywordswidth}{-2.5pt}
+% \noindent\box0\parbox[t][][t]{\keywordswidth}{\tutkielma@foreignkeywords}
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Table of contents
@@ -354,6 +414,7 @@
   \begin{singlespace}%
     \@starttoc{toc}%
   \end{singlespace}%
+  \thispagestyle{empty}%
 }
 
 \def\@dottedtocline#1#2#3#4#5{%
@@ -499,23 +560,6 @@
   {5}{\z@}{-26pt}{26pt}{\normalfont \normalsize}%
 }
 
-% \newcommand \secref[2][] {\MakeUppercase{\mysectionname}~\ref{#2}#1}
-
-\newcommand \secref[1][] {%
-  \def\relayarg{{#1}}%
-  \secrefr%
-}
-\newcommand \secrefr[2][default] {%
-  \setbox0=\hbox{#1}%
-  \setbox1=\hbox{default}%
-  \ifnum \wd0 = 0 (\relayarg\ \MakeUppercase{\mysectionname}~\ref{#2})%
-  \else%
-    \ifnum \wd0 = \wd1 (\MakeUppercase{\mysectionname}~\ref{#2}\relayarg)%
-    \else (\relayarg\ \MakeUppercase{\mysectionname}~\ref{#2}#1)%
-    \fi%
-  \fi%
-}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Lists and quotes
 %
@@ -562,7 +606,7 @@
   \fi}
 \def\itemize{%
 %  \quotefontsize
-%  \quotespacing        
+%  \quotespacing
   \ifnum \@itemdepth >\thr@@\@toodeep\else
     \advance\@itemdepth\@ne
     \edef\@itemitem{labelitem\romannumeral\the\@itemdepth}%
@@ -625,55 +669,6 @@
 \renewcommand \thetable {\@arabic\c@table}
 \renewcommand \thesubtable {\alph{subtable}}
 \renewcommand \theexample {\@arabic\c@example}
-
-% \newcommand \figref[2][] {\MakeUppercase{\myfigurename}~\ref{#2}#1}
-% \newcommand \tabref[2][] {\MakeUppercase{\mytablename}~\ref{#2}#1}
-% \newcommand \exref[2][] {\MakeUppercase{\myexamplename}~\ref{#2}#1}
-
-\newcommand \figref[1][] {%
-  \def\relayarg{{#1}}%
-  \figrefr%
-}
-\newcommand \figrefr[2][default] {%
-  \setbox0=\hbox{#1}%
-  \setbox1=\hbox{default}%
-  \ifnum \wd0 = 0 (\relayarg\ \MakeUppercase{\myfigurename}~\ref{#2})%
-  \else%
-    \ifnum \wd0 = \wd1 (\MakeUppercase{\myfigurename}~\ref{#2}\relayarg)%
-    \else (\relayarg\ \MakeUppercase{\myfigurename}~\ref{#2}#1)%
-    \fi%
-  \fi%
-}
-
-\newcommand \tabref[1][] {%
-  \def\relayarg{{#1}}%
-  \tabrefr%
-}
-\newcommand \tabrefr[2][default] {%
-  \setbox0=\hbox{#1}%
-  \setbox1=\hbox{default}%
-  \ifnum \wd0 = 0 (\relayarg\ \MakeUppercase{\mytablename}~\ref{#2})%
-  \else%
-    \ifnum \wd0 = \wd1 (\MakeUppercase{\mytablename}~\ref{#2}\relayarg)%
-    \else (\relayarg\ \MakeUppercase{\mytablename}~\ref{#2}#1)%
-    \fi%
-  \fi%
-}
-
-\newcommand \exref[1][] {%
-  \def\relayarg{{#1}}%
-  \exrefr%
-}
-\newcommand \exrefr[2][default] {%
-  \setbox0=\hbox{#1}%
-  \setbox1=\hbox{default}%
-  \ifnum \wd0 = 0 (\relayarg\ \MakeUppercase{\myexamplename}~\ref{#2})%
-  \else%
-    \ifnum \wd0 = \wd1 (\MakeUppercase{\myexamplename}~\ref{#2}\relayarg)%
-    \else (\relayarg\ \MakeUppercase{\myexamplename}~\ref{#2}#1)%
-    \fi%
-  \fi%
-}
 
 \def\fnum@example{\MakeUppercase{\myexamplename}\nobreakspace\theexample}
 \def\fnum@figure{\MakeUppercase{\myfigurename}\nobreakspace\thefigure}
@@ -807,4 +802,66 @@
     }%
     \par
   \endgroup
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Referencing figures, tables, etc
+%
+
+% \RequirePackage{varioref}
+\RequirePackage{cleveref}
+
+\crefname{table}{\MakeLowercase{\mytablename}}{\MakeLowercase{\mytablenameplural}}
+\crefname{figure}{\MakeLowercase{\myfigurename}}{\MakeLowercase{\myfigurenameplural}}
+\crefname{example}{\MakeLowercase{\myexamplename}}{\MakeLowercase{\myexamplenameplural}}
+\crefname{chapter}{\MakeLowercase{\mysectionname}}{\MakeLowercase{\mysectionnameplural}}
+\crefname{section}{\MakeLowercase{\mysectionname}}{\MakeLowercase{\mysectionnameplural}}
+\crefname{subsection}{\MakeLowercase{\mysectionname}}{\MakeLowercase{\mysectionnameplural}}
+\crefname{appendix}{\MakeLowercase{\myappendixname}}{\MakeLowercase{\myappendixnameplural}}
+
+\newcommand{\crefrangeconjunction}{--}
+\newcommand{\crefpairconjunction}{ \mylastsep~}
+\newcommand{\creflastconjunction}{ \mylastsep~}
+\newcommand{\crefpairgroupconjunction}{ \mylastsep~}
+\newcommand{\creflastgroupconjunction}{ \mylastsep~}
+
+\newcommand \crefpr[2][default] {%
+  \setbox0=\hbox{#1}%
+  \setbox1=\hbox{default}%
+  \ifnum \wd0 = 0 (\relayarg\ \cref{#2})%
+  \else%
+    \ifnum \wd0 = \wd1 (\cref{#2}\relayarg)%
+    \else (\relayarg\ \cref{#2}#1)%
+    \fi%
+  \fi%
+}
+
+\newcommand \crefp[1][] {%
+  \def\relayarg{{#1}}%
+  \crefpr%
+}
+
+\newcommand \figref[1][] {
+  \def\relayarg{{#1}}%
+  \crefpr%
+}
+
+\newcommand \tabref[1][] {
+  \def\relayarg{{#1}}%
+  \crefpr%
+}
+
+\newcommand \exref[1][] {%
+  \def\relayarg{{#1}}%
+  \crefpr%
+}
+
+\newcommand \secref[1][] {%
+  \def\relayarg{{#1}}%
+  \crefpr%
+}
+
+\newcommand \appxref[1][] {%
+  \def\relayarg{{#1}}%
+  \crefpr%
 }

@@ -1,22 +1,16 @@
-%.pdf: %.tex luvut/*.tex
+TEXFILE := esimerkki
+CHAPTERS := $(wildcard $(luvut)/*.tex)
 
-	pdflatex "$<"
-	bibtex `echo "$<"|sed -e "s/\.tex//"`
-	pdflatex "$<"
-	bibtex `echo "$<"|sed -e "s/\.tex//"`
-	pdflatex "$<"
-	pdflatex "$<"
+all: $(TEXFILE).pdf
 
-all:
-	ls -1 *.tex|sed -e "s/\.tex/\.pdf/g"|xargs -I foo make foo
+$(TEXFILE).pdf: $(TEXFILE).tex $(CHAPTERS)
+	@latexmk -pdf -recorder -interaction=nonstopmode -use-make -quiet $(TEXFILE)
+
+watch:
+	@latexmk -pvc -pdf -recorder -interaction=nonstopmode -use-make -quiet $(TEXFILE)
 
 clean:
-	ls -1 *.tex|sed -e "s/\.tex/\.pdf/g"|xargs -I foo rm -f foo
-	find . -name "*.out" -print0|xargs -0 rm
-	find . -name "*.log" -print0|xargs -0 rm
-	find . -name "*.toc" -print0|xargs -0 rm
-	find . -name "*.blg" -print0|xargs -0 rm
-	find . -name "*.bbl" -print0|xargs -0 rm
-	find . -name "*.aux" -print0|xargs -0 rm
-	find . -name "*.lof" -print0|xargs -0 rm
-	find . -name "*.lot" -print0|xargs -0 rm
+	@latexmk -C -quiet
+	@rm -f *.bbl
+
+.PHONY: all clean

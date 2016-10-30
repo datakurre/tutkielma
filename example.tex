@@ -1,0 +1,74 @@
+\documentclass[english]{tutkielma}
+
+\title{The example of the thesis style}
+\foreigntitle{Tutkielma-tyylin esimerkki}
+\author{FirstName}{SecondName}{LastName}
+\location{Jyväskylä}
+\university{University of Jyväskylä}
+\foreignuniversity{Jyväskylän yliopisto}
+\department{Department of Computer Science and Information Systems}
+\subject{Information Systems Science}
+\type{Example}
+\foreigntype{Esimerkki}
+\keywords{\LaTeX, layout}
+\foreignkeywords{\LaTeX, taitto}
+
+%\fixdate{13}{7}{2007}
+
+\usepackage{texnames}
+\usepackage[pdftex]{graphicx}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+
+\noindent This is an example about tutkielma"-style.
+In addition to that previous sentence, this abstract should also have
+an another one so that we can see, how hyphenation and other
+typography works.
+
+\end{abstract}
+
+\begin{foreignabstract}
+
+\noindent Tämä on esimerkki tutkielma"-tyylin käytöstä.
+Tässä abstraktissa on hyvä olla vielä toinenkin virke,
+jotta kävisi ilmi, kuinka kappale rivittyy.
+
+
+\end{foreignabstract}
+
+\chapter*{Foreword}
+\thispagestyle{empty}
+
+\noindent This is a Foreword and it is quite short. Following pages use Finnish example chapters and figures. This English example document only shows the basic usage of tutkielma"-style in with English documents.
+
+\chapter*{Figures}
+\listoffigures
+\thispagestyle{empty}
+
+% Hack two chapters on the same page
+\begingroup
+\renewcommand{\cleardoublepage}{}
+\renewcommand{\clearpage}{}
+\par\addvspace{26pt}
+
+\chapter*{Tables}
+\listoftables
+\thispagestyle{empty}
+
+\endgroup
+
+\tableofcontents
+
+\include{luvut/esimerkkiluku}
+
+\bibliography{esimerkki}
+
+\appendix
+
+\include{luvut/esimerkkiliite}
+
+\end{document}

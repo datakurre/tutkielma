@@ -1,0 +1,7 @@
+language: generic
+sudo: false
+cache:
+  directories: .texlive
+script:
+- source texlive.sh
+- make

@@ -1,4 +1,4 @@
-\documentclass[english]{tutkielma}
+\documentclass{tutkielma}
 
 \title{Tutkielma-tyylin esimerkki}
 \foreigntitle{The example of the thesis style}
@@ -48,15 +48,23 @@ typography works.
 \listoffigures
 \thispagestyle{empty}
 
+% Hack two chapters on the same page
+\begingroup
+\renewcommand{\cleardoublepage}{}
+\renewcommand{\clearpage}{}
+\par\addvspace{26pt}
+
 \chapter*{Taulukot}
 \listoftables
 \thispagestyle{empty}
+
+\endgroup
 
 \tableofcontents
 
 \include{luvut/esimerkkiluku}
 
-\bibliography{esimerkki}
+\bibliography{esimerkki.bib}
 
 \appendix
 
