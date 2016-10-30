@@ -60,54 +60,99 @@
 \RequirePackage{babel}
 \RequirePackage{iflang}
 
-\def\myabstractname{Tiivistelm\"a}
-\def\mykeywordsname{Asiasanat}
-\def\mytableofcontentsname{Sis\"allys}
-\def\myexamplename{Esimerkki}
-\def\myexamplenameplural{Esimerkit}
-\def\myfigurename{Kuvio}
-\def\myfigurenameplural{Kuviot}
-\def\mytablename{Taulukko}
-\def\mytablenameplural{Taulukot}
-\def\mybibname{L\"ahteet}
-\def\mysectionname{Luku}
-\def\mysectionnameplural{Luvut}
-\def\myappendixname{Liite}
-\def\myappendixnameplural{Liitteet}
-\def\mysupervisorname{Ohjaaja}
-\def\myforeignsupervisorname{Supervisor}
-\def\mysupervisorsname{Ohjaajat}
-\def\myforeignsupervisorsname{Supervisors}
-\def\myforeignabstractname{Abstract}
-\def\myforeignkeywordsname{Keywords}
-
-\def\mylastsep{ja}
-\def\mypageabbrv{s.}
-\def\mypagesabbrv{s.}
-\def\myforeignpagesabbrv{p.}
-
-\def\tutkielma@title{Tutkielman otsikko}
-\def\tutkielma@foreigntitle{The title of the thesis}
-\def\tutkielma@titlesecond{Aliotsikko}
-\def\tutkielma@author{Tutkielman kirjoittaja}
-\def\tutkielma@date{\myday.\mymonth.\myyear}
-\def\tutkielma@year{\myyear}
-\def\tutkielma@location{Jyv\"askyl\"a}
-\def\tutkielma@university{Jyv\"askyl\"an yliopisto}
-\def\tutkielma@foreignuniversity{University of Jyv\"askyl\"a}
-\def\tutkielma@department{Tietojenk\"asittelytieteiden laitos}
-\def\tutkielma@supervisor{Tutkielman ohjaaja}
-\def\tutkielma@subject{Tietoj\"arjestelm\"atieteen}
-\def\tutkielma@type{pro gradu -tutkielma}
-\def\tutkielma@foreigntype{Masters thesis}
-\def\tutkielma@version{}
-\def\tutkielma@note{}
-\def\tutkielma@keywords{Luettele, t\"ah\"an, avain, sanat}
-\def\tutkielma@foreignkeywords{Put, your, keywords, here}
-
 \IfLanguageName{finnish}{%
+  \def\myabstractname{Tiivistelm\"a}
+  \def\mykeywordsname{Asiasanat}
+  \def\mytableofcontentsname{Sis\"allys}
+  \def\myexamplename{Esimerkki}
+  \def\myexamplenameplural{Esimerkit}
+  \def\myfigurename{Kuvio}
+  \def\myfigurenameplural{Kuviot}
+  \def\mytablename{Taulukko}
+  \def\mytablenameplural{Taulukot}
+  \def\mybibname{L\"ahteet}
+  \def\mysectionname{Luku}
+  \def\mysectionnameplural{Luvut}
+  \def\myappendixname{Liite}
+  \def\myappendixnameplural{Liitteet}
+  \def\mysupervisorname{Ohjaaja}
+  \def\myforeignsupervisorname{Supervisor}
+  \def\mysupervisorsname{Ohjaajat}
+  \def\myforeignsupervisorsname{Supervisors}
+  \def\myforeignabstractname{Abstract}
+  \def\myforeignkeywordsname{Keywords}
+
+  \def\mylastsep{ja}
+  \def\mypageabbrv{s.}
+  \def\mypagesabbrv{s.}
+  \def\myforeignpagesabbrv{p.}
+
+  \def\tutkielma@title{Tutkielman otsikko}
+  \def\tutkielma@foreigntitle{The title of the thesis}
+  \def\tutkielma@titlesecond{Aliotsikko}
+  \def\tutkielma@author{Tutkielman kirjoittaja}
+  \def\tutkielma@date{\myday.\mymonth.\myyear}
+  \def\tutkielma@year{\myyear}
+  \def\tutkielma@location{Jyv\"askyl\"a}
+  \def\tutkielma@university{Jyv\"askyl\"an yliopisto}
+  \def\tutkielma@foreignuniversity{University of Jyv\"askyl\"a}
+  \def\tutkielma@department{Tietojenk\"asittelytieteiden laitos}
+  \def\tutkielma@supervisor{Tutkielman ohjaaja}
+  \def\tutkielma@subject{Tietoj\"arjestelm\"atieteen}
+  \def\tutkielma@type{pro gradu -tutkielma}
+  \def\tutkielma@foreigntype{Masters thesis}
+  \def\tutkielma@version{}
+  \def\tutkielma@note{}
+  \def\tutkielma@keywords{Luettele, t\"ah\"an, avain, sanat}
+  \def\tutkielma@foreignkeywords{Put, your, keywords, here}
+
   \def\mybibliographystyle{tutkielma}%
-}{%
+}
+{%
+  \def\myabstractname{Abstract}
+  \def\mykeywordsname{Keywords}
+  \def\mytableofcontentsname{Table of contents}
+  \def\myexamplename{Example}
+  \def\myexamplenameplural{Examples}
+  \def\myfigurename{Figure}
+  \def\myfigurenameplural{Figures}
+  \def\mytablename{Table}
+  \def\mytablenameplural{Tables}
+  \def\mybibname{References}
+  \def\mysectionname{Chapter}
+  \def\mysectionnameplural{Chapters}
+  \def\myappendixname{Appendix}
+  \def\myappendixnameplural{Appendixes}
+  \def\mysupervisorname{Supervisor}
+  \def\myforeignsupervisorname{Ohjaaja}
+  \def\mysupervisorsname{Supervisors}
+  \def\myforeignsupervisorsname{Ohjaajat}
+  \def\myforeignabstractname{Tiivistelm\"a}
+  \def\myforeignkeywordsname{Asiasanat}
+
+  \def\mylastsep{and}
+  \def\mypageabbrv{p.}
+  \def\mypagesabbrv{p.}
+  \def\myforeignpagesabbrv{s.}
+
+  \def\tutkielma@title{Tutkielman otsikko}
+  \def\tutkielma@foreigntitle{The title of the thesis}
+  \def\tutkielma@titlesecond{Subheading}
+  \def\tutkielma@author{Tutkielman kirjoittaja}
+  \def\tutkielma@date{\myday.\mymonth.\myyear}
+  \def\tutkielma@year{\myyear}
+  \def\tutkielma@location{Jyv\"askyl\"a}
+  \def\tutkielma@university{Jyv\"askyl\"an yliopisto}
+  \def\tutkielma@foreignuniversity{University of Jyv\"askyl\"a}
+  \def\tutkielma@department{Tietojenk\"asittelytieteiden laitos}
+  \def\tutkielma@supervisor{Supervisor of the thesis}
+  \def\tutkielma@subject{Tietoj\"arjestelm\"atieteen}
+  \def\tutkielma@type{pro gradu -tutkielma}
+  \def\tutkielma@foreigntype{Masters thesis}
+  \def\tutkielma@version{}
+  \def\tutkielma@note{}
+  \def\tutkielma@keywords{Luettele, t\"ah\"an, avain, sanat}
+
   \def\mybibliographystyle{tutkielma.en}%
 }
 
